@@ -40,10 +40,11 @@
   --gold:#d6b25e; --gold-hi:#f1d68f; --gold-lo:#9c7a2e;
   --frost:#cfe6f5; --frost-dim:rgba(207,230,245,.34);
   --berry:#e2607a;
-  --snap:#fffc00; --snap-dim:rgba(255,252,0,.42);
+  --green:#5aa860; --green-hi:#8fd094; --green-dim:rgba(90,168,96,.42);
+  --snap:#e3d955; --snap-dim:rgba(227,217,85,.4);
   --grad-gold:linear-gradient(135deg,#f6e1a3 0%,#d6b25e 45%,#a37e2c 100%);
   --grad-winter:linear-gradient(135deg,#f1d68f 0%,#d6b25e 38%,#a9c8de 100%);
-  --grad-snap:linear-gradient(135deg,#fffd66 0%,#fffc00 55%,#e8e500 100%);
+  --grad-snap:linear-gradient(135deg,#f2eda0 0%,#e2d856 50%,#c3ba39 100%);
   --tap:56px; --wrap:1160px; --nav:64px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -100,14 +101,14 @@ html:not(.age-ok) #site{visibility:hidden}
 .btn-gold{background:var(--grad-gold);color:#17120a;box-shadow:0 10px 30px -10px rgba(214,178,94,.6),inset 0 1px 0 rgba(255,255,255,.4)}
 .btn-ghost{background:rgba(255,255,255,.04);border:1.5px solid rgba(214,178,94,.55);color:var(--ink)}
 .btn-frost{background:rgba(207,230,245,.1);border:1.5px solid var(--frost-dim);color:var(--frost)}
-.btn-snap{background:var(--grad-snap);color:#101010;box-shadow:0 10px 30px -12px rgba(255,252,0,.55),inset 0 1px 0 rgba(255,255,255,.55)}
-.btn-snap-ghost{background:rgba(255,252,0,.07);border:1.5px solid var(--snap-dim);color:var(--snap)}
+.btn-snap{background:var(--grad-snap);color:#141208;box-shadow:0 10px 26px -12px rgba(227,217,85,.45),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-snap-ghost{background:rgba(227,217,85,.06);border:1.5px solid var(--snap-dim);color:var(--snap)}
 @media (hover:hover){
   .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(214,178,94,.75),inset 0 1px 0 rgba(255,255,255,.4)}
   .btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold-hi);background:rgba(214,178,94,.08)}
   .btn-frost:hover{transform:translateY(-2px);border-color:var(--frost);background:rgba(207,230,245,.16)}
-  .btn-snap:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(255,252,0,.7),inset 0 1px 0 rgba(255,255,255,.55)}
-  .btn-snap-ghost:hover{transform:translateY(-2px);border-color:var(--snap);background:rgba(255,252,0,.14)}
+  .btn-snap:hover{transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(227,217,85,.6),inset 0 1px 0 rgba(255,255,255,.5)}
+  .btn-snap-ghost:hover{transform:translateY(-2px);border-color:var(--snap);background:rgba(227,217,85,.12)}
   .btn:hover::after{transform:translateX(130%)}
 }
 .btn-row{display:grid;gap:12px}
@@ -128,9 +129,11 @@ html:not(.age-ok) #site{visibility:hidden}
   .nav.scrolled{background:rgba(10,10,11,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 }
 @media (min-width:1080px){.nav nav{gap:26px}.nav nav a{font-size:.95rem}}
-.wordmark{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:1.3rem;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}
+
+/* Wordmark: "YartsForAll" is one unbroken word, leaf sits off to the side */
+.wordmark{display:inline-flex;align-items:center;gap:0;font-weight:800;font-size:1.3rem;letter-spacing:-.03em;text-decoration:none;color:var(--ink);white-space:nowrap}
 .wordmark span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
-.leaf{width:20px;height:20px;flex:none;color:var(--gold);transform-origin:50% 88%;animation:sway 5.5s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(214,178,94,.45))}
+.leaf{width:20px;height:20px;flex:none;margin-left:7px;color:var(--green);transform-origin:50% 88%;animation:sway 5.5s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(90,168,96,.5))}
 @keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
 
 /* Shared */
@@ -284,7 +287,7 @@ html:not(.age-ok) #site{visibility:hidden}
 .rev-who span{font-size:.7rem;color:var(--muted);font-weight:600}
 .stars{color:var(--gold);font-size:.82rem;letter-spacing:.14em;line-height:1}
 .stars .off{color:rgba(255,255,255,.22)}
-.rev p{font-size:.92rem;color:#ddd8ce;line-height:1.5}
+.rev p{font-size:.92rem;color:#ddd8ce;line-height:1.55}
 .rev .when{margin-top:auto;padding-top:2px;font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
 .rev .when::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
 .proof-note{margin-top:22px;text-align:center;color:var(--muted);font-size:.78rem;letter-spacing:.02em}
@@ -362,10 +365,10 @@ html:not(.age-ok) #site{visibility:hidden}
 .contact-card{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;min-height:96px;padding:18px 20px;border-radius:22px;text-decoration:none;border:1px solid rgba(214,178,94,.4);background:linear-gradient(160deg,rgba(214,178,94,.12),rgba(255,255,255,.02));transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s;-webkit-tap-highlight-color:transparent}
 .contact-card:active{transform:scale(.98)}
 .contact-card.tg{background:var(--grad-gold);color:#17120a;border-color:transparent;box-shadow:0 16px 40px -18px rgba(214,178,94,.7)}
-.contact-card.snap{background:var(--grad-snap);color:#101010;border-color:transparent;box-shadow:0 16px 40px -18px rgba(255,252,0,.6)}
+.contact-card.snap{background:var(--grad-snap);color:#141208;border-color:transparent;box-shadow:0 16px 36px -20px rgba(227,217,85,.5)}
 .cc-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex:none;background:rgba(214,178,94,.14);color:var(--gold-hi)}
 .tg .cc-icon{background:rgba(0,0,0,.14);color:#17120a}
-.snap .cc-icon{background:rgba(0,0,0,.12);color:#101010}
+.snap .cc-icon{background:rgba(0,0,0,.11);color:#141208}
 .cc-icon .ico{width:26px;height:26px}
 .cc-text{display:grid;flex:1;min-width:0}
 .cc-text strong{font-size:1.12rem;font-weight:800;letter-spacing:-.01em}
@@ -748,63 +751,63 @@ html.lb-open{overflow:hidden}
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">MR</span><div class="rev-who"><strong>Marisol R.</strong><span>Sheepshead Bay</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>w cop fr. both chambers hit different and the double click thing is actually the move. cotton candy one is dangerous tho.</p>
+            <p>Good cop. Both chambers hit different and the double click thing is actually the move. The cotton candy one is dangerous though.</p>
             <p class="when">3 days ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">DK</span><div class="rev-who"><strong>Dev K.</strong><span>Flatbush</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>shi is good asf. pink cherry tastes like actual candy not that fake battery taste. screen showing your % is a nice touch too.</p>
+            <p>Pink cherry actually tastes like candy, not that fake battery taste. The screen showing your percentage is a nice touch too.</p>
             <p class="when">1 week ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">AB</span><div class="rev-who"><strong>Abe B.</strong><span>Sheepshead Bay</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>i js told my friend abt it and got a discount code from the site and im getting it even cheaper. he's getting one too. we both ate.</p>
+            <p>Told my friend about it, got a discount code off the site and paid even less. He's getting one too.</p>
             <p class="when">2 days ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">RW</span><div class="rev-who"><strong>Rivky W.</strong><span>Flatbush</span></div></div>
             <div class="stars" aria-label="4 out of 5">★★★★<span class="off">★</span></div>
-            <p>tastes good and hits strong, no complaints there. dropped it to 4 bc the cotton candy side leaked a little in my pocket. delivery itself was quick.</p>
+            <p>Tastes good and hits strong, no complaints there. Four stars because the cotton candy side leaked a little in my pocket. Delivery itself was quick.</p>
             <p class="when">4 days ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">TS</span><div class="rev-who"><strong>Tanya S.</strong><span>Flatbush</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>ain't gonna lie i was skeptical bc the price is low but it's the real one, sealed, box and all. not a knockoff.</p>
+            <p>Was skeptical because the price is low, but it's the real one. Sealed, box and all. Not a knockoff.</p>
             <p class="when">4 days ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">MK</span><div class="rev-who"><strong>Moishe K.</strong><span>Sheepshead Bay</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>paid with venmo, no drama, guy showed up when he said. second one already. this is the only menu i use now.</p>
+            <p>Paid with Venmo, no drama, and the guy showed up when he said he would. Second one already. Only menu I use now.</p>
             <p class="when">5 days ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">RC</span><div class="rev-who"><strong>Rico C.</strong><span>Sheepshead Bay</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>ordered at 11pm on a tuesday and still got it. no app, no checkout, just texted and paid the guy. that's it.</p>
+            <p>Ordered at 11pm on a Tuesday and still got it. No app, no checkout. Just texted and paid the guy.</p>
             <p class="when">1 week ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">CR</span><div class="rev-who"><strong>Chaya R.</strong><span>Flatbush</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>my husband doesn't even smoke and he liked the pink cherry. 2g lasted us almost two weeks. will be back before the holidays.</p>
+            <p>My husband doesn't even smoke and he liked the pink cherry. The 2g lasted us almost two weeks. Back before the holidays.</p>
             <p class="when">6 days ago</p>
           </article>
 
           <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">SP</span><div class="rev-who"><strong>Sam P.</strong><span>Flatbush</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>was paying 70 for this same thing on another menu. found these guys and felt dumb. same box, half the price.</p>
+            <p>Was paying 70 for this same thing on another menu. Found these guys and felt dumb. Same box, half the price.</p>
             <p class="when">1 week ago</p>
           </article>
         </div>
