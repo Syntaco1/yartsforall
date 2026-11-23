@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>YartsForAll | Cannabis Delivery in Flatbush &amp; Sheepshead Bay, Brooklyn</title>
-<meta name="description" content="YartsForAll hand-delivers the Ace Signature Gold 2g cartridge in Flatbush and Sheepshead Bay, Brooklyn. Adults 21+ only. Message us on Telegram or WhatsApp. ID verified and payment made in person at delivery.">
+<title>YartsForAll | Sherbinskis Quattro 2g Live Resin Delivery in Flatbush &amp; Sheepshead Bay, Brooklyn</title>
+<meta name="description" content="YartsForAll hand-delivers the Sherbinskis Quattro 2g live resin disposable in Flatbush and Sheepshead Bay, Brooklyn. $60 down to $35. Pink Cherry x Cotton Candy, dual chamber, quad coil. Adults 21+ only. Message us on Telegram or WhatsApp. ID checked, payment in person.">
 <meta name="theme-color" content="#0a0a0b">
 <meta name="robots" content="index,follow">
 <!-- TODO: replace with your real domain -->
@@ -12,16 +12,16 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="YartsForAll">
 <meta property="og:title" content="YartsForAll | Hand-delivered. Brooklyn only.">
-<meta property="og:description" content="Hand delivery in Flatbush and Sheepshead Bay. Message us on Telegram or WhatsApp. 21+ with valid ID.">
+<meta property="og:description" content="Sherbinskis Quattro 2g live resin. $60 down to $35. Hand delivery in Flatbush and Sheepshead Bay. 21+ with valid ID.">
 <meta property="og:url" content="https://yartsforall.com/">
-<!-- TODO: add a 1200x630 image at this path -->
-<meta property="og:image" content="https://yartsforall.com/og-image.jpg">
+<meta property="og:image" content="https://freesmokenyc.com/cdn/shop/files/IMG-3304.png?v=1770182043&width=1200">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="YartsForAll | Hand-delivered. Brooklyn only.">
-<meta name="twitter:description" content="Hand delivery in Flatbush and Sheepshead Bay. 21+ only.">
+<meta name="twitter:description" content="Sherbinskis Quattro 2g live resin. $60 down to $35. Hand delivery in Flatbush and Sheepshead Bay. 21+ only.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://freesmokenyc.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 
@@ -38,7 +38,10 @@
   --bg:#0a0a0b; --ink:#f4f1ea; --muted:#aaa59c; --line:rgba(255,255,255,.09);
   --panel:rgba(16,16,18,.72); --panel-solid:rgba(16,16,18,.9);
   --gold:#d6b25e; --gold-hi:#f1d68f; --gold-lo:#9c7a2e;
+  --frost:#cfe6f5; --frost-dim:rgba(207,230,245,.34);
+  --berry:#e2607a;
   --grad-gold:linear-gradient(135deg,#f6e1a3 0%,#d6b25e 45%,#a37e2c 100%);
+  --grad-winter:linear-gradient(135deg,#f1d68f 0%,#d6b25e 38%,#a9c8de 100%);
   --tap:56px; --wrap:1160px; --nav:64px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -56,17 +59,26 @@ ul,ol{list-style:none}
 .ico{width:22px;height:22px;flex:none}
 .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
 .gold-text{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.winter-text{background:var(--grad-winter);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* Background smoke */
-#smoke{position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:-2;pointer-events:none}
-.smoke-fallback{position:fixed;inset:0;z-index:-2;display:none;pointer-events:none;background:
+/* Background smoke + snow */
+#smoke{position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:-3;pointer-events:none}
+#snow{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;opacity:.55}
+.smoke-fallback{position:fixed;inset:0;z-index:-3;display:none;pointer-events:none;background:
   radial-gradient(60% 45% at 18% 22%,rgba(120,120,128,.16),transparent 70%),
   radial-gradient(45% 40% at 82% 30%,rgba(214,178,94,.08),transparent 70%),
+  radial-gradient(50% 40% at 70% 12%,rgba(169,200,222,.09),transparent 70%),
   radial-gradient(70% 55% at 50% 92%,rgba(90,90,98,.18),transparent 70%),
   radial-gradient(40% 35% at 70% 70%,rgba(110,110,118,.10),transparent 70%),#0a0a0b}
 .no-webgl .smoke-fallback{display:block}
 .no-webgl #smoke{display:none}
 .veil{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(130% 90% at 50% 10%,transparent 35%,rgba(10,10,11,.6) 100%)}
+.aurora{position:absolute;inset:-20% -10% auto -10%;height:70%;pointer-events:none;z-index:0;filter:blur(60px);opacity:.5;
+  background:
+    radial-gradient(closest-side at 30% 40%,rgba(214,178,94,.22),transparent),
+    radial-gradient(closest-side at 68% 30%,rgba(169,200,222,.18),transparent);
+  animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate3d(-3%,0,0) scale(1)}100%{transform:translate3d(4%,3%,0) scale(1.12)}}
 
 /* Age gate */
 html:not(.age-ok){overflow:hidden}
@@ -81,13 +93,17 @@ html:not(.age-ok) #site{visibility:hidden}
 .gate-actions{display:grid;gap:12px}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--tap);padding:0 22px;border-radius:16px;font-weight:700;font-size:1.02rem;text-decoration:none;white-space:nowrap;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,background-color .25s,border-color .25s;-webkit-tap-highlight-color:transparent;user-select:none}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--tap);padding:0 22px;border-radius:16px;font-weight:700;font-size:1.02rem;text-decoration:none;white-space:nowrap;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,background-color .3s,border-color .3s;-webkit-tap-highlight-color:transparent;user-select:none}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(100deg,transparent 32%,rgba(255,255,255,.45) 50%,transparent 68%);transform:translateX(-130%);transition:transform .75s cubic-bezier(.2,.7,.2,1)}
 .btn:active{transform:scale(.97)}
 .btn-gold{background:var(--grad-gold);color:#17120a;box-shadow:0 10px 30px -10px rgba(214,178,94,.6),inset 0 1px 0 rgba(255,255,255,.4)}
 .btn-ghost{background:rgba(255,255,255,.04);border:1.5px solid rgba(214,178,94,.55);color:var(--ink)}
+.btn-frost{background:rgba(207,230,245,.1);border:1.5px solid var(--frost-dim);color:var(--frost)}
 @media (hover:hover){
   .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(214,178,94,.75),inset 0 1px 0 rgba(255,255,255,.4)}
   .btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold-hi);background:rgba(214,178,94,.08)}
+  .btn-frost:hover{transform:translateY(-2px);border-color:var(--frost);background:rgba(207,230,245,.16)}
+  .btn:hover::after{transform:translateX(130%)}
 }
 .btn-row{display:grid;gap:12px}
 .btn-row .btn{width:100%}
@@ -97,9 +113,10 @@ html:not(.age-ok) #site{visibility:hidden}
 /* Nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:40;height:calc(var(--nav) + env(safe-area-inset-top));padding:env(safe-area-inset-top) 20px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:background-color .3s,border-color .3s}
 .nav.scrolled{background:rgba(10,10,11,.88);border-color:var(--line)}
-.nav nav{display:none;gap:30px}
+.nav nav{display:none;gap:26px}
 .nav nav a{text-decoration:none;color:#cfc9be;font-weight:600;font-size:.95rem;transition:color .2s}
 .nav nav a:hover{color:var(--gold-hi)}
+.nav nav a.hot{color:var(--frost)}
 @media (min-width:900px){
   .nav{padding-left:40px;padding-right:40px}
   .nav nav{display:flex}
@@ -111,6 +128,8 @@ html:not(.age-ok) #site{visibility:hidden}
 /* Shared */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.eyebrow.frost{color:var(--frost)}
+.eyebrow.frost .dot{background:var(--frost);box-shadow:0 0 12px var(--frost)}
 .section{padding:88px 0;position:relative}
 .sec-head{max-width:660px;margin-bottom:32px}
 .sec-head h2{font-size:clamp(2rem,8.4vw,3.4rem);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin-top:10px}
@@ -125,12 +144,18 @@ html:not(.age-ok) #site{visibility:hidden}
 .hero-title .mask{display:block;overflow:hidden;padding-bottom:.07em}
 .hero-title .line{display:block}
 .hero-sub{font-size:clamp(1.05rem,4.4vw,1.3rem);color:#ddd8ce;max-width:34ch;margin-bottom:26px}
-.hero-art{position:absolute;z-index:1;right:-22%;top:10%;height:80%;width:62%;opacity:.3;pointer-events:none}
+.hero-art{position:absolute;z-index:1;right:-16%;top:8%;height:84%;width:64%;opacity:.28;pointer-events:none}
 .hero-art-inner{position:relative;width:100%;height:100%}
-.hero-glow{position:absolute;inset:8% -10% 8% 0;background:radial-gradient(closest-side,rgba(214,178,94,.32),transparent)}
-.hero-art .art{position:relative;height:100%;width:auto;margin-left:auto;animation:float 7s ease-in-out infinite}
+.hero-glow{position:absolute;inset:6% -14% 6% -2%;background:radial-gradient(closest-side,rgba(214,178,94,.34),rgba(226,96,122,.12) 55%,transparent);filter:blur(8px);border-radius:46% 54% 58% 42%/52% 44% 56% 48%;animation:blob 16s ease-in-out infinite}
+@keyframes blob{
+  0%,100%{border-radius:46% 54% 58% 42%/52% 44% 56% 48%;transform:rotate(0deg) scale(1)}
+  33%{border-radius:58% 42% 40% 60%/44% 58% 42% 56%;transform:rotate(6deg) scale(1.05)}
+  66%{border-radius:40% 60% 56% 44%/58% 40% 60% 42%;transform:rotate(-5deg) scale(.98)}
+}
+.hero-art .art{position:relative;height:100%;width:auto;margin-left:auto;animation:float 7s ease-in-out infinite;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+.hero-art img.art{height:100%;width:100%;object-fit:contain;object-position:right center}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px;max-width:580px}
-.facts>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.facts>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .facts dt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
 .facts dd{font-size:.95rem;font-weight:600;line-height:1.35;margin-top:3px}
 .facts s{color:var(--muted);font-weight:500;margin-left:4px}
@@ -138,28 +163,34 @@ html:not(.age-ok) #site{visibility:hidden}
 .id-line{margin-top:16px;color:var(--muted);font-size:.9rem;display:flex;align-items:center;gap:8px}
 .id-line .ico{width:18px;height:18px;color:var(--gold)}
 @media (min-width:900px){
-  .hero-art{right:4%;width:36%;top:14%;height:74%;opacity:1}
-  .hero-inner>*{max-width:620px}
+  .hero-art{right:3%;width:38%;top:12%;height:76%;opacity:1}
+  .hero-inner>*{max-width:600px}
   .facts{grid-template-columns:repeat(4,1fr);max-width:760px}
 }
 
 /* Product */
 .product{display:grid;gap:32px}
 @media (min-width:900px){.product{grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}}
-.gal-frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(214,178,94,.22);background:radial-gradient(70% 55% at 50% 45%,rgba(214,178,94,.22),transparent 70%),linear-gradient(180deg,#18181b 0%,#0c0c0e 100%);box-shadow:0 30px 80px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.06)}
+.gal-frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(214,178,94,.22);background:radial-gradient(70% 55% at 50% 45%,rgba(214,178,94,.2),transparent 70%),radial-gradient(60% 45% at 80% 10%,rgba(169,200,222,.14),transparent 70%),linear-gradient(180deg,#18181b 0%,#0c0c0e 100%);box-shadow:0 30px 80px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.06)}
+.gal-frame::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.13) 50%,transparent 58%);background-size:260% 100%;background-position:120% 0;transition:background-position 1.1s cubic-bezier(.2,.7,.2,1)}
+.gal-frame:hover::after{background-position:-20% 0}
 .gal-track{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .gal-track::-webkit-scrollbar{display:none}
-.gal-slide{flex:0 0 100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always;position:relative;display:grid;place-items:center;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
-.gal-slide img{width:100%;height:100%;object-fit:cover}
-.tilt{display:grid;place-items:center;width:100%;height:100%;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.gal-slide{flex:0 0 100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always;position:relative;display:grid;place-items:center;cursor:zoom-in;-webkit-tap-highlight-color:transparent;z-index:2;overflow:hidden}
+.gal-slide .art{height:82%;width:auto;max-width:88%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.6))}
+.ph{width:100%;height:100%;object-fit:contain;padding:7%;will-change:transform}
+.ph-full{transform:scale(1)}
+.ph-tilt{transform:rotate(-8deg) scale(1.06)}
+.ph-detail{transform:scale(1.75);object-position:50% 22%}
+.ph-screen{transform:scale(2.1);object-position:50% 42%}
+.tilt{display:grid;place-items:center;width:100%;height:100%;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .float{display:grid;place-items:center;width:100%;height:100%;animation:float 6.5s ease-in-out infinite}
-.gal-slide .art{height:80%;width:auto;max-width:90%}
 .art{font-family:"Manrope",system-ui,sans-serif}
 .art-shadow{fill:rgba(0,0,0,.55)}
-.slot-label{position:absolute;top:14px;left:14px;z-index:2;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(10,10,11,.65);border:1px solid var(--line);color:var(--gold-hi)}
-.expand{position:absolute;right:14px;bottom:14px;z-index:2;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(10,10,11,.65);border:1px solid var(--line)}
+.slot-label{position:absolute;top:14px;left:14px;z-index:3;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(10,10,11,.65);border:1px solid var(--line);color:var(--gold-hi)}
+.expand{position:absolute;right:14px;bottom:14px;z-index:3;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(10,10,11,.65);border:1px solid var(--line)}
 .expand .ico{width:18px;height:18px}
-.gal-nav{position:absolute;top:50%;z-index:3;width:48px;height:48px;margin-top:-24px;border-radius:50%;display:none;place-items:center;background:rgba(10,10,11,.65);border:1px solid var(--line);transition:border-color .2s}
+.gal-nav{position:absolute;top:50%;z-index:4;width:48px;height:48px;margin-top:-24px;border-radius:50%;display:none;place-items:center;background:rgba(10,10,11,.65);border:1px solid var(--line);transition:border-color .2s}
 .gal-nav:hover{border-color:var(--gold)}
 .gal-nav.prev{left:12px}.gal-nav.next{right:12px}
 @media (hover:hover) and (pointer:fine){.gal-nav{display:grid}}
@@ -171,15 +202,23 @@ html:not(.age-ok) #site{visibility:hidden}
 .dot-btn[aria-current="true"] span{width:24px;background:var(--gold)}
 @keyframes float{0%,100%{transform:translate3d(0,-6px,0) rotate(-.6deg)}50%{transform:translate3d(0,8px,0) rotate(.6deg)}}
 
-.product-name{font-size:clamp(2.5rem,11vw,4.6rem);line-height:.98;letter-spacing:-.04em;font-weight:800;margin-top:12px}
-.product-size{font-size:clamp(1.3rem,5.5vw,1.8rem);font-weight:600;color:#ddd8ce;margin-top:8px}
-.spec{margin-top:18px;padding:12px 14px;border-left:3px solid var(--gold);background:rgba(214,178,94,.07);border-radius:0 12px 12px 0;font-weight:600;font-size:.98rem}
+.product-name{font-size:clamp(2.3rem,10vw,4.2rem);line-height:.98;letter-spacing:-.04em;font-weight:800;margin-top:12px}
+.product-size{font-size:clamp(1.2rem,5vw,1.55rem);font-weight:600;color:#ddd8ce;margin-top:10px}
+.strains{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.strains li{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;font-size:.9rem;font-weight:700;border:1px solid var(--line);background:var(--panel)}
+.strains li .sd{width:8px;height:8px;border-radius:50%}
+.strains li.pink .sd{background:var(--berry);box-shadow:0 0 10px var(--berry)}
+.strains li.cotton .sd{background:var(--frost);box-shadow:0 0 10px var(--frost)}
+.strains li i{font-style:normal;font-weight:600;color:var(--muted);font-size:.82rem}
+.spec{margin-top:16px;padding:12px 14px;border-left:3px solid var(--gold);background:rgba(214,178,94,.07);border-radius:0 12px 12px 0;font-weight:600;font-size:.95rem}
 .spec .g{color:var(--gold-hi)}
-.price-card{position:relative;margin:24px 0 18px;padding:20px;border-radius:22px;border:1px solid rgba(214,178,94,.35);background:linear-gradient(160deg,rgba(214,178,94,.14),rgba(255,255,255,.02) 60%);isolation:isolate}
+.how-hit{margin-top:12px;display:flex;gap:10px;font-size:.93rem;color:#cfc9be}
+.how-hit .ico{color:var(--gold);width:18px;height:18px;flex:none;margin-top:3px}
+.price-card{position:relative;margin:22px 0 18px;padding:20px;border-radius:22px;border:1px solid rgba(214,178,94,.35);background:linear-gradient(160deg,rgba(214,178,94,.14),rgba(255,255,255,.02) 60%);isolation:isolate}
 .price-card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;box-shadow:0 0 0 1px rgba(241,214,143,.55),0 0 42px rgba(214,178,94,.35);opacity:0;z-index:-1}
 .price-card.pulse::before{animation:glow 2.8s ease-in-out infinite}
 @keyframes glow{0%,100%{opacity:.15}50%{opacity:.9}}
-.deal-tag{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;background:var(--grad-gold);color:#1a1405;font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.deal-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--grad-winter);color:#1a1405;font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
 .price-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:16px;margin-top:10px}
 .price-now{font-size:clamp(3.4rem,16vw,5rem);line-height:1;font-weight:800;letter-spacing:-.045em;font-variant-numeric:tabular-nums;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .price-was{position:relative;font-size:1.6rem;font-weight:700;color:var(--muted)}
@@ -210,6 +249,38 @@ html:not(.age-ok) #site{visibility:hidden}
 .zone-label{background:rgba(10,10,11,.88)!important;border:1px solid rgba(214,178,94,.55)!important;color:var(--gold-hi)!important;font-weight:800;font-size:13px;border-radius:999px!important;padding:4px 12px!important;box-shadow:none!important}
 .zone-label::before{display:none}
 
+/* Referral */
+.refer-shell{display:grid;gap:26px}
+@media (min-width:940px){.refer-shell{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
+.give-get{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.gg{padding:18px;border-radius:20px;border:1px solid var(--frost-dim);background:linear-gradient(160deg,rgba(207,230,245,.11),rgba(255,255,255,.02))}
+.gg strong{display:block;font-size:1.55rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--frost)}
+.gg span{display:block;font-size:.9rem;color:var(--muted);margin-top:6px;line-height:1.4}
+.gg.gold{border-color:rgba(214,178,94,.4);background:linear-gradient(160deg,rgba(214,178,94,.12),rgba(255,255,255,.02))}
+.gg.gold strong{color:var(--gold-hi)}
+.refer-steps{display:grid;gap:12px;margin-top:22px}
+.refer-steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;color:#cfc9be;font-size:.98rem}
+.refer-steps b{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(207,230,245,.14);border:1px solid var(--frost-dim);color:var(--frost);font-size:.85rem;font-weight:800}
+.code-card{position:relative;padding:22px;border-radius:24px;border:1px solid var(--frost-dim);background:linear-gradient(165deg,rgba(207,230,245,.1),rgba(214,178,94,.05) 70%);box-shadow:0 24px 60px -30px rgba(0,0,0,.9)}
+.code-card h3{font-size:1.2rem;letter-spacing:-.01em}
+.code-card p.hint{color:var(--muted);font-size:.92rem;margin-top:6px}
+.field{margin-top:16px}
+.field label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--frost);margin-bottom:8px}
+.field input{width:100%;min-height:52px;padding:0 16px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.35);color:var(--ink);font:inherit;font-weight:600;transition:border-color .25s,box-shadow .25s}
+.field input:focus{outline:none;border-color:var(--frost);box-shadow:0 0 0 3px rgba(207,230,245,.14)}
+.code-out{margin-top:14px;padding:18px 16px;border-radius:16px;border:1px dashed var(--frost-dim);background:rgba(0,0,0,.4);text-align:center}
+.code-out .lbl{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.code-val{display:block;margin-top:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:clamp(1.15rem,5vw,1.5rem);font-weight:800;letter-spacing:.1em;color:var(--frost);word-break:break-all}
+.code-val.pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{0%{transform:scale(.86);opacity:.2}100%{transform:scale(1);opacity:1}}
+.code-actions{display:grid;gap:10px;margin-top:14px}
+@media (min-width:480px){.code-actions{grid-template-columns:1fr 1fr}}
+.code-actions .btn{width:100%;min-height:50px;font-size:.95rem}
+.fine{margin-top:18px;color:var(--muted);font-size:.84rem;line-height:1.5}
+.fine li{display:flex;gap:8px;margin-top:6px}
+.fine li::before{content:"·";color:var(--gold)}
+.copy-state{color:var(--gold-hi);font-weight:700;font-size:.85rem;text-align:center;margin-top:8px;min-height:1.2em}
+
 /* Steps */
 .steps{position:relative;display:grid;gap:18px}
 .steps-line{position:absolute;left:46px;top:46px;bottom:46px;width:2px;background:linear-gradient(var(--gold),rgba(214,178,94,.15));transform-origin:top center;z-index:-1}
@@ -226,7 +297,7 @@ html:not(.age-ok) #site{visibility:hidden}
 /* Contact */
 .contact-grid{display:grid;gap:14px;max-width:840px;margin:0 auto}
 @media (min-width:760px){.contact-grid{grid-template-columns:1fr 1fr}}
-.contact-card{display:flex;align-items:center;gap:16px;min-height:96px;padding:18px 20px;border-radius:22px;text-decoration:none;border:1px solid rgba(214,178,94,.4);background:linear-gradient(160deg,rgba(214,178,94,.12),rgba(255,255,255,.02));transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s;-webkit-tap-highlight-color:transparent}
+.contact-card{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;min-height:96px;padding:18px 20px;border-radius:22px;text-decoration:none;border:1px solid rgba(214,178,94,.4);background:linear-gradient(160deg,rgba(214,178,94,.12),rgba(255,255,255,.02));transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s;-webkit-tap-highlight-color:transparent}
 .contact-card:active{transform:scale(.98)}
 .contact-card.tg{background:var(--grad-gold);color:#17120a;border-color:transparent;box-shadow:0 16px 40px -18px rgba(214,178,94,.7)}
 .cc-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex:none;background:rgba(214,178,94,.14);color:var(--gold-hi)}
@@ -265,7 +336,7 @@ html.lb-open{overflow:hidden}
 .lb-slide{flex:0 0 100%;height:100%;scroll-snap-align:center;display:grid;place-items:center;padding:calc(72px + env(safe-area-inset-top)) 16px calc(72px + env(safe-area-inset-bottom))}
 .lb-media{width:100%;height:100%;display:grid;place-items:center;background:radial-gradient(45% 42% at 50% 50%,rgba(214,178,94,.2),transparent 70%)}
 .lb-media .art{height:100%;width:auto;max-width:100%}
-.lb-media img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px}
+.lb-media img{max-width:100%;max-height:100%;object-fit:contain}
 .lb-close,.lb-nav{position:absolute;z-index:2;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid var(--line)}
 .lb-close{top:calc(12px + env(safe-area-inset-top));right:12px}
 .lb-nav{top:50%;margin-top:-26px;display:none}
@@ -285,41 +356,73 @@ html.lb-open{overflow:hidden}
 <body>
 
 <canvas id="smoke" aria-hidden="true"></canvas>
+<canvas id="snow" aria-hidden="true"></canvas>
 <div class="smoke-fallback" aria-hidden="true"></div>
 <div class="veil" aria-hidden="true"></div>
 
-<!-- Shared SVG: gradients, cartridge illustration, icons -->
+<!-- Shared SVG: fallback device art, gradients, icons -->
 <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="gMouth" x1="0" x2="1"><stop offset="0" stop-color="#0f0f11"/><stop offset=".45" stop-color="#3d3d42"/><stop offset=".62" stop-color="#26262a"/><stop offset="1" stop-color="#0b0b0d"/></linearGradient>
-    <linearGradient id="gGold" x1="0" x2="1"><stop offset="0" stop-color="#6b5017"/><stop offset=".35" stop-color="#f3d58a"/><stop offset=".55" stop-color="#c99a3a"/><stop offset="1" stop-color="#5e4512"/></linearGradient>
-    <linearGradient id="gGlass" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".5" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#fff" stop-opacity=".13"/></linearGradient>
-    <linearGradient id="gOil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7c25a"/><stop offset=".5" stop-color="#d98a1c"/><stop offset="1" stop-color="#93520a"/></linearGradient>
-    <linearGradient id="gSteel" x1="0" x2="1"><stop offset="0" stop-color="#47474c"/><stop offset=".45" stop-color="#dadade"/><stop offset="1" stop-color="#525257"/></linearGradient>
-    <linearGradient id="gBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e1d20"/><stop offset="1" stop-color="#0a0a0c"/></linearGradient>
+    <linearGradient id="gBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8f6b"/><stop offset=".35" stop-color="#f0607f"/>
+      <stop offset=".72" stop-color="#d9455f"/><stop offset="1" stop-color="#a52a45"/>
+    </linearGradient>
+    <linearGradient id="gRim" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".35" stop-color="#fff" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".26"/>
+    </linearGradient>
+    <linearGradient id="gMouth" x1="0" x2="1">
+      <stop offset="0" stop-color="#a52a45"/><stop offset=".45" stop-color="#ff9d7d"/>
+      <stop offset=".62" stop-color="#e2607a"/><stop offset="1" stop-color="#8f2138"/>
+    </linearGradient>
+    <linearGradient id="gGold" x1="0" x2="1">
+      <stop offset="0" stop-color="#6b5017"/><stop offset=".35" stop-color="#f3d58a"/>
+      <stop offset=".55" stop-color="#c99a3a"/><stop offset="1" stop-color="#5e4512"/>
+    </linearGradient>
+    <linearGradient id="gChrome" x1="0" x2="1">
+      <stop offset="0" stop-color="#8d8f96"/><stop offset=".3" stop-color="#ffffff"/>
+      <stop offset=".55" stop-color="#c3c6cc"/><stop offset="1" stop-color="#76787f"/>
+    </linearGradient>
+    <linearGradient id="gOil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd27a"/><stop offset=".55" stop-color="#e0921f"/><stop offset="1" stop-color="#9c5406"/>
+    </linearGradient>
+    <linearGradient id="gWin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b1207"/><stop offset="1" stop-color="#140803"/>
+    </linearGradient>
+    <linearGradient id="gScreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1b22"/><stop offset="1" stop-color="#071013"/>
+    </linearGradient>
   </defs>
 
-  <symbol id="cart" viewBox="0 0 120 360">
-    <path d="M44 14c0-5 4-8 16-8s16 3 16 8l6 54H38z" fill="url(#gMouth)"/>
-    <path d="M48 15c1-3 5-5 12-5" stroke="rgba(255,255,255,.28)" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect x="34" y="66" width="52" height="16" rx="3" fill="url(#gGold)"/>
-    <rect x="34" y="73" width="52" height="1.4" fill="rgba(0,0,0,.25)"/>
-    <rect x="36" y="82" width="48" height="172" rx="5" fill="url(#gGlass)" stroke="rgba(255,255,255,.22)" stroke-width="1"/>
-    <rect x="39.5" y="104" width="41" height="146" rx="3" fill="url(#gOil)"/>
-    <ellipse cx="60" cy="104" rx="20.5" ry="2.6" fill="#ffd27a" opacity=".75"/>
-    <rect x="56.5" y="84" width="7" height="168" fill="url(#gSteel)" opacity=".85"/>
-    <circle cx="48" cy="160" r="1.6" fill="#ffe2a0" opacity=".55"/>
-    <circle cx="71" cy="196" r="1.2" fill="#ffe2a0" opacity=".45"/>
-    <circle cx="50" cy="224" r="1" fill="#ffe2a0" opacity=".4"/>
-    <rect x="41" y="88" width="4" height="158" rx="2" fill="rgba(255,255,255,.28)"/>
-    <rect x="76" y="92" width="2" height="150" rx="1" fill="rgba(255,255,255,.12)"/>
-    <rect x="34" y="254" width="52" height="40" rx="3" fill="url(#gGold)"/>
-    <rect x="34" y="262" width="52" height="1.2" fill="rgba(0,0,0,.22)"/>
-    <rect x="34" y="285" width="52" height="1.2" fill="rgba(0,0,0,.22)"/>
-    <text x="60" y="278" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="2.5" fill="#3a2a08">ACE</text>
-    <rect x="44" y="294" width="32" height="30" rx="2" fill="url(#gSteel)"/>
-    <path d="M44 299h32M44 304h32M44 309h32M44 314h32M44 319h32" stroke="rgba(0,0,0,.35)" stroke-width="1.2"/>
-    <rect x="50" y="324" width="20" height="8" rx="2" fill="url(#gSteel)"/>
+  <!-- Dual-chamber AIO fallback illustration -->
+  <symbol id="aio" viewBox="0 0 140 340">
+    <rect x="52" y="4" width="36" height="20" rx="9" fill="url(#gMouth)"/>
+    <rect x="56" y="7" width="28" height="4" rx="2" fill="rgba(255,255,255,.3)"/>
+    <rect x="18" y="20" width="104" height="302" rx="30" fill="url(#gBody)"/>
+    <rect x="26" y="28" width="88" height="286" rx="24" fill="none" stroke="url(#gRim)" stroke-width="1.6"/>
+    <ellipse cx="70" cy="70" rx="27" ry="15" fill="url(#gWin)" stroke="rgba(255,255,255,.42)" stroke-width="1.4"/>
+    <ellipse cx="70" cy="72" rx="23" ry="11" fill="url(#gOil)"/>
+    <ellipse cx="70" cy="72" rx="23" ry="11" fill="none" stroke="rgba(0,0,0,.22)"/>
+    <rect x="69.2" y="61" width="1.6" height="22" fill="rgba(0,0,0,.35)"/>
+    <ellipse cx="63" cy="66" rx="7" ry="2.8" fill="#ffe6b3" opacity=".5"/>
+    <rect x="46" y="106" width="48" height="26" rx="5" fill="url(#gScreen)" stroke="rgba(255,255,255,.28)"/>
+    <text x="70" y="123" text-anchor="middle" font-size="11" font-weight="800" fill="#8fe6c8" font-family="ui-monospace,monospace">100%</text>
+    <text x="70" y="164" text-anchor="middle" font-size="8.2" font-weight="800" letter-spacing="2.4" fill="#fff">SHERBINSKIS</text>
+    <text x="70" y="196" text-anchor="middle" font-size="23" font-weight="800" font-style="italic" letter-spacing="-.5" fill="url(#gChrome)" font-family="Manrope, system-ui, sans-serif">quattro</text>
+    <g>
+      <rect x="56" y="206" width="9" height="3.4" rx="1" fill="#0e7a3c"/>
+      <rect x="65" y="206" width="9" height="3.4" fill="#f5f5f5"/>
+      <rect x="74" y="206" width="9" height="3.4" rx="1" fill="#c1272d"/>
+    </g>
+    <g transform="translate(46,232)">
+      <path d="M12 0 24 21H0z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="12" cy="14" r="2.2" fill="#fff"/>
+      <text x="12" y="33" text-anchor="middle" font-size="8" font-weight="800" fill="#fff" letter-spacing="1.6">CA</text>
+    </g>
+    <text x="104" y="252" text-anchor="end" font-size="7.2" font-weight="800" letter-spacing="1.2" fill="#fff" opacity=".9">QUAD-COIL</text>
+    <text x="104" y="263" text-anchor="end" font-size="7.2" font-weight="800" letter-spacing="1.2" fill="#fff" opacity=".9">DUAL-CHAMBER</text>
+    <text x="70" y="300" text-anchor="middle" font-size="11" font-weight="800" letter-spacing="2" fill="#fff">2g</text>
+    <rect x="56" y="311" width="28" height="5" rx="2.5" fill="#12100f" opacity=".55"/>
   </symbol>
 
   <symbol id="i-send" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 10.5l6.5 2.5L12 20l3-5.5"/><path d="M21 3 9.5 13M21 3l-6 12"/></g></symbol>
@@ -330,6 +433,10 @@ html.lb-open{overflow:hidden}
   <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-hand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3l4.5 1.5a1.5 1.5 0 0 1-.5 3H8"/><path d="M6 20h7l7-4a1.6 1.6 0 0 0-1.6-2.7L14 15"/><rect x="11" y="4" width="8" height="7" rx="1.5"/></g></symbol>
   <symbol id="i-id" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.3 1.7-2 3-2s2.4.7 3 2M14.5 10h4M14.5 13.5h3"/></g></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M3 13h18M12 9v12"/><path d="M12 9S10.5 4 8 4a2.5 2.5 0 0 0 0 5M12 9s1.5-5 4-5a2.5 2.5 0 0 1 0 5"/></g></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 5.5V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1.5"/></g></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 2v20M3.5 7l17 10M20.5 7l-17 10"/><path d="M9 4l3 2.6L15 4M9 20l3-2.6L15 20"/></g></symbol>
+  <symbol id="i-tap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6.5a2 2 0 1 1 4 0V12"/><path d="M13 10.5a2 2 0 1 1 4 0V15a5 5 0 0 1-5 5h-1.5a5 5 0 0 1-4.3-2.4L4 14.5a1.8 1.8 0 0 1 3-2l1.6 2"/></g></symbol>
 </svg>
 
 <!-- AGE GATE -->
@@ -353,6 +460,7 @@ html.lb-open{overflow:hidden}
     <nav aria-label="Primary">
       <a href="#product">Product</a>
       <a href="#delivery">Delivery</a>
+      <a href="#refer" class="hot">Refer</a>
       <a href="#how">How it works</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -362,27 +470,28 @@ html.lb-open{overflow:hidden}
   <main id="top">
     <!-- HERO -->
     <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <div class="aurora" aria-hidden="true"></div>
       <div class="hero-art" aria-hidden="true">
         <div class="hero-art-inner" data-hero>
           <div class="hero-glow"></div>
-          <svg class="art" viewBox="0 0 160 380"><ellipse class="art-shadow" cx="80" cy="368" rx="42" ry="6"/><use href="#cart" x="20" y="0" width="120" height="360"/></svg>
+          <svg class="art" viewBox="0 0 180 380"><ellipse class="art-shadow" cx="90" cy="368" rx="40" ry="6"/><use href="#aio" x="20" y="8" width="140" height="340"/></svg>
         </div>
       </div>
       <div class="wrap hero-inner">
-        <p class="eyebrow" data-hero><span class="dot"></span>Licensed adult-use delivery · 21+</p>
+        <p class="eyebrow frost" data-hero><span class="dot"></span>Holiday drop · 21+ only</p>
         <h1 class="hero-title" id="heroTitle">
           <span class="mask"><span class="line" data-hero>Hand-delivered.</span></span>
-          <span class="mask"><span class="line gold-text" data-hero>Brooklyn only.</span></span>
+          <span class="mask"><span class="line winter-text" data-hero>Brooklyn only.</span></span>
         </h1>
-        <p class="hero-sub" data-hero>We deliver by hand in Flatbush and Sheepshead Bay. Message us, we meet you, you pay in person.</p>
+        <p class="hero-sub" data-hero>Sherbinskis Quattro live resin, 2 grams, delivered by hand in Flatbush and Sheepshead Bay. $60 down to $35 for the holidays.</p>
         <div class="btn-row hero-ctas">
           <a class="btn btn-gold" data-hero data-contact="telegram" href="https://t.me/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>Order on Telegram</a>
           <a class="btn btn-ghost" data-hero data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Order on WhatsApp</a>
         </div>
         <dl class="facts">
-          <div data-hero><dt>What</dt><dd data-product-short>Ace Signature Gold 2g Cartridge</dd></div>
+          <div data-hero><dt>What</dt><dd data-product-short>Sherbinskis Quattro 2g Live Resin</dd></div>
           <div data-hero><dt>Where</dt><dd>Flatbush &amp; Sheepshead Bay</dd></div>
-          <div data-hero><dt>Price</dt><dd><span data-price-short>$40</span><s data-price-was-short hidden>$40</s><small data-price-tag-short></small></dd></div>
+          <div data-hero><dt>Price</dt><dd><span data-price-short>$35</span><s data-price-was-short hidden>$60</s><small data-price-tag-short></small></dd></div>
           <div data-hero><dt>Pay</dt><dd>In person at handoff</dd></div>
         </dl>
         <p class="id-line" data-hero><svg class="ico" aria-hidden="true"><use href="#i-id"/></svg>We honestly do not care if you have an ID.</p>
@@ -399,22 +508,27 @@ html.lb-open{overflow:hidden}
             <button class="gal-nav next" id="galNext" type="button" aria-label="Next photo"><svg class="ico" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
           </div>
           <div class="gal-meta">
-            <span class="gal-caption" id="galCaption" aria-live="polite">Front view</span>
+            <span class="gal-caption" id="galCaption" aria-live="polite">Full device</span>
             <div class="gal-dots" id="galDots"></div>
           </div>
         </div>
 
         <div class="product-info">
-          <p class="eyebrow" data-reveal><span class="dot"></span>The one we carry</p>
-          <h2 class="product-name" id="productTitle" data-reveal>Ace Signature Gold</h2>
-          <p class="product-size" id="productSize" data-reveal>2g Cartridge</p>
-          <p class="spec" data-reveal><span class="g">2g cartridge</span> · Hand-delivered in Flatbush and Sheepshead Bay.</p>
+          <p class="eyebrow" data-reveal><span class="dot"></span>The only thing we carry</p>
+          <h2 class="product-name" id="productTitle" data-reveal>Sherbinskis Quattro</h2>
+          <p class="product-size" id="productSize" data-reveal>2g Live Resin Disposable</p>
+          <ul class="strains" data-reveal>
+            <li class="pink"><span class="sd" aria-hidden="true"></span>Pink Cherry <i>hybrid</i></li>
+            <li class="cotton"><span class="sd" aria-hidden="true"></span>Cotton Candy <i>hybrid</i></li>
+          </ul>
+          <p class="spec" data-reveal><span class="g">2g live resin · dual chamber · quad coil</span> · 79.37% THC. Digital screen, rechargeable, USB-C. Hand-delivered in Flatbush and Sheepshead Bay.</p>
+          <p class="how-hit" data-reveal><svg class="ico" aria-hidden="true"><use href="#i-tap"/></svg><span>Click once to switch chambers and hit either strain on its own. Double-click to fire both together.</span></p>
 
           <div class="price-card" id="priceCard" data-reveal>
             <span class="deal-tag" id="dealTag" hidden></span>
             <div class="price-row">
-              <span class="price-now"><span class="sr-only" id="priceLabel">Price </span>$<span id="priceNow">40</span></span>
-              <span class="price-was" id="priceWas" hidden><span class="sr-only">Regular price </span>$<span id="priceWasNum">40</span></span>
+              <span class="price-now"><span class="sr-only" id="priceLabel">Price </span>$<span id="priceNow">35</span></span>
+              <span class="price-was" id="priceWas" hidden><span class="sr-only">Regular price </span>$<span id="priceWasNum">60</span></span>
             </div>
             <p class="deal-window" id="dealWindow" hidden></p>
           </div>
@@ -450,6 +564,62 @@ html.lb-open{overflow:hidden}
       </div>
     </section>
 
+    <!-- REFERRAL -->
+    <section class="section" id="refer" aria-labelledby="referTitle">
+      <div class="wrap">
+        <div class="refer-shell">
+          <div>
+            <header class="sec-head" data-reveal style="margin-bottom:18px">
+              <p class="eyebrow frost"><span class="dot"></span>Refer a friend</p>
+              <h2 id="referTitle">Give $5.<br>Get $5.</h2>
+              <p class="lead">Bring someone in, you both save. Codes are made by hand — message us on WhatsApp or Telegram, we set you up with one.</p>
+            </header>
+
+            <div class="give-get" data-reveal>
+              <div class="gg"><strong>$5 off</strong><span>for your friend, on their next purchase</span></div>
+              <div class="gg gold"><strong>$5 off</strong><span>for you, on your next purchase</span></div>
+            </div>
+
+            <ol class="refer-steps" data-reveal>
+              <li><b>1</b><span>Message us on WhatsApp or Telegram and ask for a referral code. We make one with your name on it.</span></li>
+              <li><b>2</b><span>Send your code to a friend. They send it to us with their order and take $5 off.</span></li>
+              <li><b>3</b><span>When their order lands, your $5 comes off your next one. Every friend, every time.</span></li>
+            </ol>
+
+            <ul class="fine" data-reveal>
+              <li>$5 off each, one use per person, one code per friend.</li>
+              <li>Doesn't stack — not with another code, not with the holiday price.</li>
+              <li>Codes don't expire. Friends must be in Flatbush or Sheepshead Bay, 21+.</li>
+            </ul>
+          </div>
+
+          <div class="code-card" data-reveal>
+            <p class="eyebrow frost" style="margin-bottom:8px"><svg class="ico" style="width:16px;height:16px" aria-hidden="true"><use href="#i-gift"/></svg>Code builder</p>
+            <h3>Make your code</h3>
+            <p class="hint">Pick a word, we'll shape a code. Send it to us and we'll lock it in.</p>
+            <div class="field">
+              <label for="codeName">Your name or nickname</label>
+              <input id="codeName" type="text" maxlength="14" placeholder="e.g. Marisol" autocomplete="given-name" spellcheck="false">
+            </div>
+            <div class="code-out" aria-live="polite">
+              <span class="lbl">Your code</span>
+              <span class="code-val" id="codeVal">YFA-______</span>
+            </div>
+            <div class="code-actions">
+              <button class="btn btn-frost" id="codeMake" type="button"><svg class="ico" aria-hidden="true"><use href="#i-snow"/></svg>Make my code</button>
+              <button class="btn btn-ghost" id="codeCopy" type="button"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg>Copy code</button>
+            </div>
+            <p class="copy-state" id="codeState" aria-live="polite"></p>
+            <div class="btn-row" style="margin-top:6px">
+              <a class="btn btn-gold" id="codeWa" data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Send on WhatsApp</a>
+              <a class="btn btn-ghost" id="codeTg" data-contact="telegram" href="https://t.me/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>Send on Telegram</a>
+            </div>
+            <p class="fine" style="margin-top:14px">A generated code is a suggestion until we confirm it on our end.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS -->
     <section class="section" id="how" aria-labelledby="howTitle">
       <div class="wrap">
@@ -459,9 +629,9 @@ html.lb-open{overflow:hidden}
         </header>
         <ol class="steps">
           <span class="steps-line" aria-hidden="true"></span>
-          <li class="step" data-reveal><span class="step-num" aria-hidden="true">1</span><div><h3>Message us</h3><p>Send us a message on Telegram or WhatsApp.</p></div></li>
+          <li class="step" data-reveal><span class="step-num" aria-hidden="true">1</span><div><h3>Message us</h3><p>Send us a message on Telegram or WhatsApp. Have a code? Drop it in.</p></div></li>
           <li class="step" data-reveal><span class="step-num" aria-hidden="true">2</span><div><h3>We confirm</h3><p>We confirm your area and a delivery time.</p></div></li>
-          <li class="step" data-reveal><span class="step-num" aria-hidden="true">3</span><div><h3>Meet in person</h3><p>We meet you in person and you pay at handoff.</p></div></li>
+          <li class="step" data-reveal><span class="step-num" aria-hidden="true">3</span><div><h3>Meet in person</h3><p>We meet you in person, you show ID, and you pay at handoff.</p></div></li>
         </ol>
       </div>
     </section>
@@ -501,7 +671,7 @@ html.lb-open{overflow:hidden}
       </div>
       <div class="foot-grid">
         <a href="#top" class="wordmark">Yarts<span>ForAll</span></a>
-        <p class="lic">YartsForAll</p>
+        <p class="lic">YartsForAll · License #<span data-license>[YOUR OCM LICENSE NUMBER]</span></p>
         <p>For all ages, fuck using an ID.</p>
         <p>Keep out of reach of children and pets.</p>
         <p>Hand delivery in Flatbush and Sheepshead Bay, Brooklyn, NY. No shipping.</p>
@@ -534,28 +704,30 @@ html.lb-open{overflow:hidden}
    EDIT HERE: everything you'll want to change lives below
    ========================================================= */
 const PRODUCT = {
-  name: "Ace Signature Gold",
-  size: "2g Cartridge",
-  regularPrice: 40,
+  name: "Sherbinskis Quattro",
+  size: "2g Live Resin Disposable",
+  regularPrice: 60,
   deals: [
-    { label: "Black Friday Special", price: 25, startDate: "2026-11-01", endDate: "2026-11-30" },
-    { label: "Winter Special", price: 30, startDate: "2026-12-01", endDate: "2027-02-28" },
+    { label: "Holiday Special", price: 35, startDate: "2026-11-20", endDate: "2027-01-06" },
   ],
 };
 
+/* The single product photo. Swap this one string to change every image on the page. */
+const PHOTO = "https://freesmokenyc.com/cdn/shop/files/IMG-3304.png?v=1770182043&width=1200";
+
 const CONTACT = {
   telegram: { url: "https://t.me/yartsforall", handle: "@yartsforall" },
-  whatsapp: { url: "https://wa.me/19292238564", display: "(929) 223-8564" },
+  whatsapp: { url: "https://wa.me/19292238564", display: "(929) 223-8564", number: "19292238564" },
 };
 
 const LICENSE = "[YOUR OCM LICENSE NUMBER]";
 
-/* Put a photo URL in src to replace the illustration in that slot. */
+/* One photo, four framings. Set `src: ""` on an entry to use the SVG fallback instead. */
 const GALLERY = [
-  { label: "Front view",  art: "front",   src: "", alt: "Ace Signature Gold 2g cartridge, front view" },
-  { label: "Angled view", art: "angled",  src: "", alt: "Ace Signature Gold 2g cartridge, angled view" },
-  { label: "Packaging",   art: "box",     src: "", alt: "Ace Signature Gold 2g cartridge packaging" },
-  { label: "Close-up",    art: "closeup", src: "", alt: "Ace Signature Gold 2g cartridge, close-up" },
+  { label: "Full device",  art: "front",   cls: "ph-full",   src: PHOTO, alt: "Sherbinskis Quattro 2g live resin dual-chamber disposable, full device" },
+  { label: "Dual chamber", art: "angled",  cls: "ph-detail", src: PHOTO, alt: "Close-up of the two oil chambers on the Sherbinskis Quattro" },
+  { label: "Digital screen", art: "box",   cls: "ph-screen", src: PHOTO, alt: "Close-up of the digital screen on the Sherbinskis Quattro" },
+  { label: "Angled view",  art: "closeup", cls: "ph-tilt",   src: PHOTO, alt: "Sherbinskis Quattro held at an angle" },
 ];
 
 /* Approximate delivery polygons [lat, lng]. Adjust to your real boundaries. */
@@ -571,6 +743,8 @@ const ZONES = [
 /* Rotating warnings: add the other approved statements from 9 NYCRR Part 129. One is picked per page load. */
 const WARNINGS = [
   "Cannabis can be addictive.",
+  "This product is not approved by the FDA to treat, cure, or prevent any disease.",
+  "Consume responsibly. Effects may be delayed up to two hours.",
 ];
 
 /* ========================================================= */
@@ -630,7 +804,7 @@ function renderPrice() {
   $('#dealWindow').hidden = !deal;
   if (deal) {
     $('#dealTag').textContent = deal.label;
-    $('#dealWindow').textContent = `${deal.label} ends ${fmtDate(deal.endDate)}.`;
+    $('#dealWindow').textContent = `${deal.label} ends ${fmtDate(deal.endDate)}. Not stackable with referral codes.`;
     $('#priceLabel').textContent = `${deal.label} price `;
   } else {
     $('#priceLabel').textContent = 'Price ';
@@ -669,28 +843,36 @@ function animatePriceOnView() {
   io.observe(card);
 }
 
-/* ---------- Product illustrations ---------- */
+/* ---------- Product art + media ---------- */
 const ART = {
-  front: `<svg class="art" viewBox="0 0 160 380"><ellipse class="art-shadow" cx="80" cy="368" rx="42" ry="6"/><use href="#cart" x="20" y="0" width="120" height="360"/></svg>`,
-  angled: `<svg class="art" viewBox="0 0 220 360"><ellipse class="art-shadow" cx="110" cy="342" rx="52" ry="6"/><use href="#cart" x="60" y="20" width="100" height="300" transform="rotate(-18 110 170)"/></svg>`,
-  box: `<svg class="art" viewBox="0 0 300 360">
-      <ellipse class="art-shadow" cx="150" cy="342" rx="110" ry="7"/>
-      <rect x="40" y="28" width="150" height="304" rx="10" fill="url(#gBox)" stroke="url(#gGold)" stroke-width="2"/>
-      <rect x="52" y="40" width="126" height="280" rx="6" fill="none" stroke="rgba(214,178,94,.35)"/>
-      <text x="115" y="120" text-anchor="middle" font-size="40" font-weight="800" letter-spacing="8" fill="url(#gGold)">ACE</text>
-      <text x="115" y="146" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="4" fill="#d6b25e">SIGNATURE GOLD</text>
-      <path d="M80 166h70" stroke="rgba(214,178,94,.5)"/>
-      <text x="115" y="198" text-anchor="middle" font-size="24" font-weight="800" fill="#f4f1ea">2g</text>
-      <text x="115" y="216" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="3" fill="#aaa59c">CARTRIDGE</text>
-      <text x="115" y="302" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="2" fill="#aaa59c">21+ ONLY</text>
-      <use href="#cart" x="182" y="30" width="92" height="276" transform="rotate(9 228 168)"/>
-    </svg>`,
-  closeup: `<svg class="art" viewBox="24 56 72 112"><use href="#cart" x="0" y="0" width="120" height="360"/></svg>`,
+  front: `<svg class="art" viewBox="0 0 180 380"><ellipse class="art-shadow" cx="90" cy="368" rx="38" ry="6"/><use href="#aio" x="20" y="8" width="140" height="340"/></svg>`,
+  angled: `<svg class="art" viewBox="0 0 240 380"><ellipse class="art-shadow" cx="120" cy="358" rx="48" ry="7"/><use href="#aio" x="60" y="24" width="122" height="296" transform="rotate(-17 121 172)"/></svg>`,
+  box: `<svg class="art" viewBox="0 0 240 380"><ellipse class="art-shadow" cx="120" cy="358" rx="48" ry="7"/><use href="#aio" x="60" y="24" width="122" height="296"/></svg>`,
+  closeup: `<svg class="art" viewBox="24 44 92 122"><use href="#aio" x="0" y="0" width="140" height="340"/></svg>`,
 };
 
 function media(g) {
-  if (g.src) return `<img src="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy" decoding="async">`;
+  if (g.src) return `<img class="${g.cls}" src="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy" decoding="async" data-art="${g.art}">`;
   return ART[g.art].replace('<svg class="art"', `<svg class="art" role="img" aria-label="${esc(g.alt)}"`);
+}
+
+function swapToArt(img) {
+  const art = ART[img.dataset.art || 'front'];
+  if (!art) return;
+  const svg = document.createElement('div');
+  svg.innerHTML = art;
+  img.replaceWith(svg.firstElementChild);
+}
+
+function initHeroArt() {
+  const holder = $('.hero-art-inner');
+  if (!holder || !PHOTO) return;
+  const img = new Image();
+  img.className = 'art';
+  img.alt = '';
+  img.decoding = 'async';
+  img.onload = () => { const s = $('svg.art', holder); if (s) s.replaceWith(img); };
+  img.src = PHOTO;
 }
 
 /* ---------- Gallery ---------- */
@@ -703,6 +885,7 @@ function initGallery() {
       <span class="tilt"><span class="float">${media(g)}</span></span>
       <span class="expand" aria-hidden="true"><svg class="ico"><use href="#i-expand"/></svg></span>
     </button>`).join('');
+  $$('img', track).forEach(img => img.addEventListener('error', () => swapToArt(img), { once: true }));
   dots.innerHTML = GALLERY.map((g, i) =>
     `<button type="button" class="dot-btn" data-i="${i}" aria-label="Show ${esc(g.label)}"><span></span></button>`).join('');
 
@@ -735,7 +918,6 @@ function initGallery() {
   window.addEventListener('resize', () => { track.scrollLeft = galIdx * track.clientWidth; });
   setActive(0);
 
-  // Pointer tilt (mouse/trackpad only)
   if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     const frame = $('#galFrame');
     frame.addEventListener('pointermove', e => {
@@ -755,7 +937,12 @@ function initGallery() {
 let lbIdx = 0, lbLastFocus = null;
 function initLightbox() {
   const lb = $('#lightbox'), track = $('#lbTrack');
-  track.innerHTML = GALLERY.map(g => `<div class="lb-slide"><div class="lb-media">${media(g)}</div></div>`).join('');
+  track.innerHTML = GALLERY.map(g => {
+    const inner = g.src
+      ? `<img src="${esc(g.src)}" alt="${esc(g.alt)}">`
+      : ART[g.art].replace('<svg class="art"', `<svg class="art" role="img" aria-label="${esc(g.alt)}"`);
+    return `<div class="lb-slide"><div class="lb-media">${inner}</div></div>`;
+  }).join('');
   const setCap = i => { lbIdx = i; $('#lbCaption').textContent = `${GALLERY[i].label} · ${i + 1} of ${GALLERY.length}`; };
   let t = false;
   track.addEventListener('scroll', () => {
@@ -797,6 +984,68 @@ function closeLightbox() {
   html.classList.remove('lb-open');
   setTimeout(() => { lb.hidden = true; }, reduce ? 0 : 250);
   if (lbLastFocus) lbLastFocus.focus();
+}
+
+/* ---------- Referral code builder ---------- */
+const CODE_KEY = 'yfa_ref_code';
+function initRefer() {
+  const input = $('#codeName'), out = $('#codeVal'), state = $('#codeState');
+  if (!input || !out) return;
+
+  const build = name => {
+    const base = (name || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6) || 'FRIEND';
+    const tail = Array.from({ length: 3 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 32)]).join('');
+    return `YFA-${base}${tail}`;
+  };
+  const syncLinks = code => {
+    const wa = $('#codeWa');
+    if (wa) {
+      const msg = `Hey YartsForAll — here's my referral code: ${code}. Please lock it in so my friend gets $5 off.`;
+      wa.href = `https://wa.me/${CONTACT.whatsapp.number}?text=${encodeURIComponent(msg)}`;
+    }
+    const tg = $('#codeTg');
+    if (tg) {
+      tg.href = CONTACT.telegram.url;
+      tg.title = code ? `Send code ${code} on Telegram` : 'Send on Telegram';
+    }
+  };
+
+  const set = code => {
+    out.textContent = code;
+    out.classList.remove('pop');
+    void out.offsetWidth;
+    out.classList.add('pop');
+    syncLinks(code);
+    try { localStorage.setItem(CODE_KEY, code); } catch (e) {}
+  };
+
+  try {
+    const saved = localStorage.getItem(CODE_KEY);
+    if (saved) { out.textContent = saved; syncLinks(saved); }
+  } catch (e) {}
+
+  $('#codeMake').addEventListener('click', () => {
+    set(build(input.value.trim()));
+    state.textContent = 'Send it to us to lock it in.';
+  });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); $('#codeMake').click(); }
+  });
+  $('#codeCopy').addEventListener('click', async () => {
+    const code = out.textContent.trim();
+    if (!code || code.includes('_')) { state.textContent = 'Make a code first.'; return; }
+    try {
+      await navigator.clipboard.writeText(code);
+      state.textContent = 'Copied.';
+    } catch (e) {
+      const r = document.createRange();
+      r.selectNodeContents(out);
+      const sel = getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      state.textContent = 'Selected — copy it.';
+    }
+  });
 }
 
 /* ---------- Age gate ---------- */
@@ -857,15 +1106,17 @@ function initSmoke() {
   void main(){
     vec2 uv=gl_FragCoord.xy/u_res;
     vec2 p=(gl_FragCoord.xy-0.5*u_res)/min(u_res.x,u_res.y)*1.8;
-    float t=u_time*0.035;
+    float t=u_time*0.032;
     vec2 q=vec2(fbm(p+vec2(0.0,t)), fbm(p+vec2(5.2,1.3)-vec2(t*0.7,0.0)));
     vec2 r=vec2(fbm(p+2.6*q+vec2(1.7,9.2)+vec2(t*1.2,-t*0.4)), fbm(p+2.6*q+vec2(8.3,2.8)-vec2(0.0,t)));
     float f=fbm(p+2.4*r+vec2(0.0,-t*0.6));
     vec3 base=vec3(0.028,0.028,0.032);
     vec3 smoke=vec3(0.19,0.185,0.19);
     vec3 gold=vec3(0.62,0.47,0.20);
+    vec3 ice=vec3(0.42,0.56,0.68);
     vec3 col=mix(base,smoke,smoothstep(0.38,0.95,f)*0.85);
-    col+=gold*smoothstep(0.55,1.05,r.x*f*1.6)*0.16;
+    col+=gold*smoothstep(0.55,1.05,r.x*f*1.6)*0.15;
+    col+=ice*smoothstep(0.62,1.1,f*r.y*1.5)*0.09;
     float vig=1.0-smoothstep(0.35,1.15,length(uv-0.5)*1.25);
     col*=0.55+0.45*vig;
     col+=(hash(gl_FragCoord.xy)-0.5)*0.012;
@@ -896,7 +1147,6 @@ function initSmoke() {
   gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
   const uRes = gl.getUniformLocation(prog, 'u_res'), uTime = gl.getUniformLocation(prog, 'u_time');
 
-  // Render small and let CSS upscale: smoke looks better soft and costs far less.
   const small = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
   const SCALE = small ? 0.32 : 0.5;
   const FRAME_MS = 1000 / 30;
@@ -928,6 +1178,60 @@ function initSmoke() {
   canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); stop(); fail(); });
 }
 
+/* ---------- Snow ---------- */
+function initSnow() {
+  const c = $('#snow');
+  if (!c || reduce) return;
+  const ctx = c.getContext('2d');
+  if (!ctx) return;
+  const small = window.matchMedia('(pointer: coarse)').matches;
+  const COUNT = small ? 26 : 46;
+  const FRAME_MS = 1000 / 30;
+  let w = 0, h = 0, flakes = [], raf = 0, last = 0, running = false;
+
+  const make = (seed) => ({
+    x: Math.random() * w,
+    y: seed ? Math.random() * h : -10,
+    r: 0.7 + Math.random() * 1.9,
+    vy: 0.25 + Math.random() * 0.85,
+    drift: 0.3 + Math.random() * 0.9,
+    ph: Math.random() * Math.PI * 2,
+    a: 0.18 + Math.random() * 0.5
+  });
+  const resize = () => {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    w = innerWidth; h = innerHeight;
+    c.width = Math.round(w * dpr * 0.8);
+    c.height = Math.round(h * dpr * 0.8);
+    ctx.setTransform((c.width / w), 0, 0, (c.height / h), 0, 0);
+    flakes = Array.from({ length: COUNT }, () => make(true));
+  };
+  const frame = now => {
+    raf = requestAnimationFrame(frame);
+    if (now - last < FRAME_MS) return;
+    last = now;
+    ctx.clearRect(0, 0, w, h);
+    for (const f of flakes) {
+      f.ph += 0.012;
+      f.y += f.vy;
+      f.x += Math.sin(f.ph) * f.drift * 0.5;
+      if (f.y > h + 8) { Object.assign(f, make(false)); f.y = -8; }
+      if (f.x < -12) f.x = w + 12;
+      if (f.x > w + 12) f.x = -12;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(228,240,250,${f.a})`;
+      ctx.fill();
+    }
+  };
+  const start = () => { if (running) return; running = true; last = 0; raf = requestAnimationFrame(frame); };
+  const stop = () => { running = false; cancelAnimationFrame(raf); };
+  resize(); start();
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+  let rt;
+  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resize, 200); });
+}
+
 /* ---------- Map ---------- */
 function initMap() {
   const el = $('#map');
@@ -938,7 +1242,6 @@ function initMap() {
     return;
   }
   const touch = window.matchMedia('(pointer: coarse)').matches;
-  // On touch screens, one finger scrolls the page; pinch zooms the map.
   const map = L.map(el, { scrollWheelZoom: false, dragging: !touch, touchZoom: true, zoomSnap: 0.5 });
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19, className: 'dark-tiles',
@@ -984,12 +1287,12 @@ function initMotion() {
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ ignoreMobileResize: true });
 
-  gsap.set('[data-reveal]', { opacity: 0, y: 28 });
+  gsap.set('[data-reveal]', { opacity: 0, y: 30 });
   gsap.set('[data-hero]', { opacity: 0 });
   html.classList.remove('motion');
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
-  tl.fromTo('.hero-art-inner', { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 1.4 }, 0)
+  tl.fromTo('.hero-art-inner', { opacity: 0, scale: 0.92, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: 1.5 }, 0)
     .fromTo('.hero .eyebrow', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6 }, 0.05)
     .fromTo('.hero-title .line', { opacity: 0, yPercent: 105 }, { opacity: 1, yPercent: 0, duration: 0.95, stagger: 0.12 }, '-=0.35')
     .fromTo('.hero-sub', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.55')
@@ -997,18 +1300,15 @@ function initMotion() {
     .fromTo('.facts > div', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.06 }, '-=0.35')
     .fromTo('.id-line', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.2');
 
-  // Parallax hero
   const heroST = { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true };
   gsap.to('.hero-art', { yPercent: 18, ease: 'none', scrollTrigger: heroST });
   gsap.to('.hero-inner', { y: -40, ease: 'none', scrollTrigger: { ...heroST } });
 
-  // Section reveals
   ScrollTrigger.batch('[data-reveal]', {
     start: 'top 88%', once: true,
-    onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', stagger: 0.09, overwrite: true }),
+    onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.09, overwrite: true }),
   });
 
-  // Steps
   const mm = gsap.matchMedia();
   mm.add('(max-width: 899px)', () => {
     gsap.fromTo('.steps-line', { scaleY: 0, scaleX: 1 }, { scaleY: 1, ease: 'none',
@@ -1038,11 +1338,14 @@ function initNav() {
 /* ---------- Boot ---------- */
 applyConfig();
 renderPrice();
-setInterval(renderPrice, 60000); // flips automatically at midnight ET if the tab stays open
+setInterval(renderPrice, 60000);
 initGallery();
 initLightbox();
+initRefer();
+initHeroArt();
 initNav();
 initSmoke();
+initSnow();
 initGate();
 
 document.addEventListener('DOMContentLoaded', () => {
