@@ -14,7 +14,7 @@
 <meta property="og:title" content="YartsForAll | Hand-delivered. Brooklyn only.">
 <meta property="og:description" content="Sherbinskis Quattro 2g live resin. $60 down to $35. Hand delivery in Flatbush and Sheepshead Bay.">
 <meta property="og:url" content="https://yartsforall.com/">
-<meta property="og:image" content="https://cdn.discordapp.com/attachments/1564857466825736233/1574289975065841694/09d2f11d-cf97-4933-a630-00a9b7ff5cc4.png?ex=6b051b4a&amp;is=6b03c9ca&amp;hm=7b721239d7d87b77996d3f4923157b3840431856f91e08b78b241d2dd050b1db">
+<meta property="og:image" content="https://cdn.discordapp.com/attachments/1564857466825736233/1574294789556543610/image-removebg-preview.png?ex=6b051fc6&amp;is=6b03ce46&amp;hm=d0c413ca0bac5f4daa441b0a1c6945a3cd9c76d2e5b40df09eca1eff417b7c58&amp;">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="YartsForAll | Hand-delivered. Brooklyn only.">
 <meta name="twitter:description" content="Sherbinskis Quattro 2g live resin. $60 down to $35. Hand delivery in Flatbush and Sheepshead Bay.">
@@ -121,8 +121,10 @@ html:not(.age-ok) #site{visibility:hidden}
   .nav nav{display:flex}
   .nav.scrolled{background:rgba(10,10,11,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 }
-.wordmark{font-weight:800;font-size:1.3rem;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}
+.wordmark{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:1.3rem;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}
 .wordmark span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.leaf{width:20px;height:20px;flex:none;color:var(--gold);transform-origin:50% 88%;animation:sway 5.5s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(214,178,94,.45))}
+@keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
 
 /* Shared */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
@@ -311,10 +313,11 @@ html:not(.age-ok) #site{visibility:hidden}
 
 /* Footer */
 .footer{padding:56px 0 40px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
-.warning{background:#FFFF00;color:#000;border-radius:14px;padding:16px 18px;display:grid;gap:6px;font-size:.92rem;line-height:1.45;font-weight:600;margin-bottom:36px}
-.warning strong{font-weight:800}
+.warning{position:relative;background:linear-gradient(160deg,rgba(214,178,94,.13),rgba(255,255,255,.02) 70%);color:var(--ink);border:1px solid rgba(214,178,94,.34);border-left:3px solid var(--gold);border-radius:14px;padding:16px 18px 16px 20px;display:grid;gap:6px;font-size:.92rem;line-height:1.45;font-weight:600;margin-bottom:36px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.warning strong{color:var(--gold-hi);font-weight:800;letter-spacing:.1em;font-size:.82rem}
+.warning p:not(:first-child){color:#cfc9be}
 .foot-grid{display:grid;gap:6px;color:var(--muted);font-size:.92rem}
-.foot-grid .wordmark{font-size:1.5rem;margin-bottom:10px;display:inline-block}
+.foot-grid .wordmark{font-size:1.5rem;margin-bottom:10px}
 .copy{margin-top:14px;font-size:.82rem;opacity:.7}
 
 /* Sticky mobile bar */
@@ -423,6 +426,17 @@ html.lb-open{overflow:hidden}
     <rect x="56" y="311" width="28" height="5" rx="2.5" fill="#12100f" opacity=".55"/>
   </symbol>
 
+  <symbol id="i-leaf" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 22.6h-.9v-9.2h1.8v9.2zM12 4.1c.5-.9 1.3-1.7 2.2-2.3-.2 1.1-.1 2.2.3 3.2-1-.4-2.1-.5-2.5-.9zM11.7 5.4c.9.5 1.7 1.3 2.1 2.3-1.1-.2-2.2 0-3.2.5.4-1.1.5-2.2 1.1-2.8z"/>
+    <path fill="currentColor" d="M12.4 5.6c1-.4 2.2-.5 3.3-.2-.6.9-1 2-1 3.1.8-.7 1.9-1.1 3-1.2-.5 1-.7 2.2-.5 3.3.7-.6 1.6-1 2.5-1.1-.5 1.1-.6 2.3-.3 3.4-1.3-.3-2.6-.1-3.8.5.3-1.2.2-2.5-.3-3.6-1.1.7-2.4 1-3.6.9.4-1.1.5-2.3.2-3.4-.7.7-1.6 1.2-2.6 1.4.4-1.1.4-2.3.1-3.4 1 .1 2.1.2 3 .3z"/>
+    <path fill="currentColor" d="M12.6 5.2c-.6-.9-1.5-1.6-2.5-2 .2 1.1.1 2.2-.2 3.2.9-.6 2-.9 2.7-1.2z"/>
+    <path fill="currentColor" d="M11.6 9.2c-1.1.2-2.2.7-3 1.5 1.1.2 2.2.7 3 1.5.3-1 .2-2.1 0-3z"/>
+    <path fill="currentColor" d="M12.3 9.3c1.1.1 2.2.6 3.1 1.3-1 .3-2.1.8-2.9 1.6-.4-1-.3-2-.2-2.9z"/>
+    <path fill="currentColor" d="M12 13.1c-.4-.5-1-.8-1.6-1 .5.4.9 1 1 1.6.2-.3.4-.5.6-.6zM12 13.1c.4-.5 1-.8 1.6-1-.5.4-.9 1-1 1.6-.2-.3-.4-.5-.6-.6z"/>
+    <path fill="currentColor" d="M11.3 12.4c-1.5-.6-3.2-.6-4.7.1 1.3.6 2.4 1.7 3.1 3 .6-1.1.9-2.2 1.6-3.1zM12.7 12.4c1.5-.6 3.2-.6 4.7.1-1.3.6-2.4 1.7-3.1 3-.6-1.1-.9-2.2-1.6-3.1z"/>
+    <path fill="currentColor" d="M11.9 17.4c-1.2.9-2.1 2.2-2.5 3.6 1.3-.4 2.6-1.3 3.4-2.5.6.5 1.2.9 1.9 1.2-.3-1.4-1-2.7-1.9-3.7-.3.5-.6.9-.9 1.4z"/>
+  </symbol>
+
   <symbol id="i-send" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 10.5l6.5 2.5L12 20l3-5.5"/><path d="M21 3 9.5 13M21 3l-6 12"/></g></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="2.6"/></g></symbol>
   <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -439,7 +453,7 @@ html.lb-open{overflow:hidden}
 <!-- AGE GATE -->
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
   <div class="gate-card">
-    <div class="wordmark">Yarts<span>ForAll</span></div>
+    <div class="wordmark">Yarts<span>ForAll</span><svg class="leaf" aria-hidden="true"><use href="#i-leaf"/></svg></div>
     <h2 id="gateTitle">We don't give a fuck about your age. Just come in.</h2>
     <p id="gateDesc">It's cannabis, not a bank. No forms, no cart, no account.</p>
     <div class="gate-actions">
@@ -452,7 +466,7 @@ html.lb-open{overflow:hidden}
 
 <div id="site">
   <header class="nav" id="nav">
-    <a href="#top" class="wordmark" aria-label="YartsForAll home">Yarts<span>ForAll</span></a>
+    <a href="#top" class="wordmark" aria-label="YartsForAll home">Yarts<span>ForAll</span><svg class="leaf" aria-hidden="true"><use href="#i-leaf"/></svg></a>
     <nav aria-label="Primary">
       <a href="#product">Product</a>
       <a href="#delivery">Delivery</a>
@@ -666,7 +680,7 @@ html.lb-open{overflow:hidden}
         <p>Struggling with substance use? Call the NYS HOPEline at 1-877-8-HOPENY (1-877-846-7369) or text HOPENY (467369).</p>
       </div>
       <div class="foot-grid">
-        <a href="#top" class="wordmark">Yarts<span>ForAll</span></a>
+        <a href="#top" class="wordmark">Yarts<span>ForAll</span><svg class="leaf" aria-hidden="true"><use href="#i-leaf"/></svg></a>
         <p>For all ages, fuck the paperwork.</p>
         <p>Keep out of reach of children and pets.</p>
         <p>Hand delivery in Flatbush and Sheepshead Bay, Brooklyn, NY. No shipping.</p>
@@ -708,7 +722,7 @@ const PRODUCT = {
 };
 
 /* The single product photo. Swap this one string to change every image on the page. */
-const PHOTO = "https://cdn.discordapp.com/attachments/1564857466825736233/1574289975065841694/09d2f11d-cf97-4933-a630-00a9b7ff5cc4.png?ex=6b051b4a&is=6b03c9ca&hm=7b721239d7d87b77996d3f4923157b3840431856f91e08b78b241d2dd050b1db&";
+const PHOTO = "https://cdn.discordapp.com/attachments/1564857466825736233/1574294789556543610/image-removebg-preview.png?ex=6b051fc6&is=6b03ce46&hm=d0c413ca0bac5f4daa441b0a1c6945a3cd9c76d2e5b40df09eca1eff417b7c58&";
 
 const CONTACT = {
   telegram: { url: "https://t.me/yartsforall", handle: "@yartsforall" },
