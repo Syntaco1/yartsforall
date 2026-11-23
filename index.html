@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>YartsForAll | Sherbinskis Quattro 2g Live Resin Delivery in Flatbush &amp; Sheepshead Bay, Brooklyn</title>
-<meta name="description" content="YartsForAll hand-delivers the Sherbinskis Quattro 2g live resin disposable in Flatbush and Sheepshead Bay, Brooklyn. $60 down to $35. Pink Cherry x Cotton Candy, dual chamber, quad coil. Message us on Telegram or WhatsApp and pay in person.">
+<meta name="description" content="YartsForAll hand-delivers the Sherbinskis Quattro 2g live resin disposable in Flatbush and Sheepshead Bay, Brooklyn. $60 down to $35. Pink Cherry x Cotton Candy, dual chamber, quad coil. Message us on Telegram or Snapchat and pay cash, PayPal, Venmo or Cash App in person.">
 <meta name="theme-color" content="#0a0a0b">
 <meta name="robots" content="index,follow">
 <!-- TODO: replace with your real domain -->
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="YartsForAll">
 <meta property="og:title" content="YartsForAll | Hand-delivered. Brooklyn only.">
-<meta property="og:description" content="Sherbinskis Quattro 2g live resin. $60 down to $35. Hand delivery in Flatbush and Sheepshead Bay.">
+<meta property="og:description" content="Sherbinskis Quattro 2g live resin. $60 down to $35. Hand delivery in Flatbush and Sheepshead Bay. Cash, PayPal, Venmo, Cash App.">
 <meta property="og:url" content="https://yartsforall.com/">
 <meta property="og:image" content="https://cdn.discordapp.com/attachments/1564857466825736233/1574294789556543610/image-removebg-preview.png?ex=6b051fc6&amp;is=6b03ce46&amp;hm=d0c413ca0bac5f4daa441b0a1c6945a3cd9c76d2e5b40df09eca1eff417b7c58&amp;">
 <meta name="twitter:card" content="summary_large_image">
@@ -40,8 +40,10 @@
   --gold:#d6b25e; --gold-hi:#f1d68f; --gold-lo:#9c7a2e;
   --frost:#cfe6f5; --frost-dim:rgba(207,230,245,.34);
   --berry:#e2607a;
+  --snap:#fffc00; --snap-dim:rgba(255,252,0,.42);
   --grad-gold:linear-gradient(135deg,#f6e1a3 0%,#d6b25e 45%,#a37e2c 100%);
   --grad-winter:linear-gradient(135deg,#f1d68f 0%,#d6b25e 38%,#a9c8de 100%);
+  --grad-snap:linear-gradient(135deg,#fffd66 0%,#fffc00 55%,#e8e500 100%);
   --tap:56px; --wrap:1160px; --nav:64px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -98,10 +100,14 @@ html:not(.age-ok) #site{visibility:hidden}
 .btn-gold{background:var(--grad-gold);color:#17120a;box-shadow:0 10px 30px -10px rgba(214,178,94,.6),inset 0 1px 0 rgba(255,255,255,.4)}
 .btn-ghost{background:rgba(255,255,255,.04);border:1.5px solid rgba(214,178,94,.55);color:var(--ink)}
 .btn-frost{background:rgba(207,230,245,.1);border:1.5px solid var(--frost-dim);color:var(--frost)}
+.btn-snap{background:var(--grad-snap);color:#101010;box-shadow:0 10px 30px -12px rgba(255,252,0,.55),inset 0 1px 0 rgba(255,255,255,.55)}
+.btn-snap-ghost{background:rgba(255,252,0,.07);border:1.5px solid var(--snap-dim);color:var(--snap)}
 @media (hover:hover){
   .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(214,178,94,.75),inset 0 1px 0 rgba(255,255,255,.4)}
   .btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold-hi);background:rgba(214,178,94,.08)}
   .btn-frost:hover{transform:translateY(-2px);border-color:var(--frost);background:rgba(207,230,245,.16)}
+  .btn-snap:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(255,252,0,.7),inset 0 1px 0 rgba(255,255,255,.55)}
+  .btn-snap-ghost:hover{transform:translateY(-2px);border-color:var(--snap);background:rgba(255,252,0,.14)}
   .btn:hover::after{transform:translateX(130%)}
 }
 .btn-row{display:grid;gap:12px}
@@ -132,22 +138,22 @@ html:not(.age-ok) #site{visibility:hidden}
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
 .eyebrow.frost{color:var(--frost)}
 .eyebrow.frost .dot{background:var(--frost);box-shadow:0 0 12px var(--frost)}
-.section{padding:88px 0;position:relative}
-.sec-head{max-width:660px;margin-bottom:32px}
-.sec-head h2{font-size:clamp(2rem,8.4vw,3.4rem);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin-top:10px}
-.lead{color:#cfc9be;font-size:1.08rem;margin-top:14px}
+.section{padding:68px 0;position:relative}
+.sec-head{max-width:660px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(1.9rem,8vw,3.4rem);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin-top:10px}
+.lead{color:#cfc9be;font-size:1.05rem;margin-top:14px}
 .center{text-align:center;margin-left:auto;margin-right:auto}
 .note-line{color:var(--muted);font-size:.82rem;margin-top:18px;text-align:center}
-@media (min-width:900px){.section{padding:120px 0}}
+@media (min-width:900px){.section{padding:112px 0}}
 
 /* Hero */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav) + 28px) 0 56px;overflow:hidden}
+.hero{position:relative;display:flex;align-items:center;padding:calc(var(--nav) + 34px) 0 44px;overflow:hidden}
 .hero-inner{position:relative;z-index:2}
-.hero-title{font-size:clamp(2.25rem,10vw,6rem);line-height:1.02;font-weight:800;letter-spacing:-.035em;margin:16px 0 18px}
+.hero-title{font-size:clamp(2.15rem,9.6vw,6rem);line-height:1.02;font-weight:800;letter-spacing:-.035em;margin:14px 0 16px}
 .hero-title .mask{display:block;overflow:hidden;padding-bottom:.07em}
 .hero-title .line{display:block}
-.hero-sub{font-size:clamp(1.05rem,4.4vw,1.3rem);color:#ddd8ce;max-width:34ch;margin-bottom:26px}
-.hero-art{position:absolute;z-index:1;right:-16%;top:8%;height:84%;width:64%;opacity:.28;pointer-events:none}
+.hero-sub{font-size:clamp(1.02rem,4.3vw,1.3rem);color:#ddd8ce;max-width:34ch;margin-bottom:24px}
+.hero-art{position:absolute;z-index:1;right:-18%;top:6%;height:82%;width:66%;opacity:.26;pointer-events:none}
 .hero-art-inner{position:relative;width:100%;height:100%}
 .hero-glow{position:absolute;inset:6% -14% 6% -2%;background:radial-gradient(closest-side,rgba(214,178,94,.34),rgba(226,96,122,.12) 55%,transparent);filter:blur(8px);border-radius:46% 54% 58% 42%/52% 44% 56% 48%;animation:blob 16s ease-in-out infinite}
 @keyframes blob{
@@ -157,24 +163,25 @@ html:not(.age-ok) #site{visibility:hidden}
 }
 .hero-art .art{position:relative;height:100%;width:auto;margin-left:auto;animation:float 7s ease-in-out infinite;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
 .hero-art img.art{height:100%;width:100%;object-fit:contain;object-position:right center}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px;max-width:580px}
-.facts>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;max-width:580px}
+.facts>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:11px 13px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .facts dt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.facts dd{font-size:.95rem;font-weight:600;line-height:1.35;margin-top:3px}
+.facts dd{font-size:.92rem;font-weight:600;line-height:1.35;margin-top:3px}
 .facts s{color:var(--muted);font-weight:500;margin-left:4px}
 .facts small{display:block;color:var(--gold-hi);font-size:.72rem;font-weight:700;margin-top:2px}
-.id-line{margin-top:16px;color:var(--muted);font-size:.9rem;display:flex;align-items:center;gap:8px}
+.id-line{margin-top:14px;color:var(--muted);font-size:.9rem;display:flex;align-items:center;gap:8px}
 .id-line .ico{width:18px;height:18px;color:var(--gold)}
 @media (min-width:900px){
+  .hero{min-height:94svh;padding:calc(var(--nav) + 28px) 0 56px}
   .hero-art{right:3%;width:38%;top:12%;height:76%;opacity:1}
   .hero-inner>*{max-width:600px}
   .facts{grid-template-columns:repeat(4,1fr);max-width:760px}
 }
 
 /* Product */
-.product{display:grid;gap:32px}
+.product{display:grid;gap:26px}
 @media (min-width:900px){.product{grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}}
-.gal-frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(214,178,94,.22);background:radial-gradient(70% 55% at 50% 45%,rgba(214,178,94,.2),transparent 70%),radial-gradient(60% 45% at 80% 10%,rgba(169,200,222,.14),transparent 70%),linear-gradient(180deg,#18181b 0%,#0c0c0e 100%);box-shadow:0 30px 80px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.06)}
+.gal-frame{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(214,178,94,.22);background:radial-gradient(70% 55% at 50% 45%,rgba(214,178,94,.2),transparent 70%),radial-gradient(60% 45% at 80% 10%,rgba(169,200,222,.14),transparent 70%),linear-gradient(180deg,#18181b 0%,#0c0c0e 100%);box-shadow:0 30px 80px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.06)}
 .gal-frame::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.13) 50%,transparent 58%);background-size:260% 100%;background-position:120% 0;transition:background-position 1.1s cubic-bezier(.2,.7,.2,1)}
 .gal-frame:hover::after{background-position:-20% 0}
 .gal-track{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
@@ -205,8 +212,8 @@ html:not(.age-ok) #site{visibility:hidden}
 .dot-btn[aria-current="true"] span{width:24px;background:var(--gold)}
 @keyframes float{0%,100%{transform:translate3d(0,-6px,0) rotate(-.6deg)}50%{transform:translate3d(0,8px,0) rotate(.6deg)}}
 
-.product-name{font-size:clamp(2.3rem,10vw,4.2rem);line-height:.98;letter-spacing:-.04em;font-weight:800;margin-top:12px}
-.product-size{font-size:clamp(1.2rem,5vw,1.55rem);font-weight:600;color:#ddd8ce;margin-top:10px}
+.product-name{font-size:clamp(2.2rem,9.6vw,4.2rem);line-height:.98;letter-spacing:-.04em;font-weight:800;margin-top:12px}
+.product-size{font-size:clamp(1.15rem,4.8vw,1.55rem);font-weight:600;color:#ddd8ce;margin-top:10px}
 .strains{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .strains li{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;font-size:.9rem;font-weight:700;border:1px solid var(--line);background:var(--panel)}
 .strains li .sd{width:8px;height:8px;border-radius:50%}
@@ -217,20 +224,22 @@ html:not(.age-ok) #site{visibility:hidden}
 .spec .g{color:var(--gold-hi)}
 .how-hit{margin-top:12px;display:flex;gap:10px;font-size:.93rem;color:#cfc9be}
 .how-hit .ico{color:var(--gold);width:18px;height:18px;flex:none;margin-top:3px}
-.price-card{position:relative;margin:22px 0 18px;padding:20px;border-radius:22px;border:1px solid rgba(214,178,94,.35);background:linear-gradient(160deg,rgba(214,178,94,.14),rgba(255,255,255,.02) 60%);isolation:isolate}
+.price-card{position:relative;margin:20px 0 16px;padding:18px;border-radius:22px;border:1px solid rgba(214,178,94,.35);background:linear-gradient(160deg,rgba(214,178,94,.14),rgba(255,255,255,.02) 60%);isolation:isolate}
 .price-card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;box-shadow:0 0 0 1px rgba(241,214,143,.55),0 0 42px rgba(214,178,94,.35);opacity:0;z-index:-1}
 .price-card.pulse::before{animation:glow 2.8s ease-in-out infinite}
 @keyframes glow{0%,100%{opacity:.15}50%{opacity:.9}}
 .deal-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--grad-winter);color:#1a1405;font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
 .price-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:16px;margin-top:10px}
-.price-now{font-size:clamp(3.4rem,16vw,5rem);line-height:1;font-weight:800;letter-spacing:-.045em;font-variant-numeric:tabular-nums;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price-now{font-size:clamp(3.2rem,15vw,5rem);line-height:1;font-weight:800;letter-spacing:-.045em;font-variant-numeric:tabular-nums;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .price-was{position:relative;font-size:1.6rem;font-weight:700;color:var(--muted)}
 .price-was::after{content:"";position:absolute;left:-8%;right:-8%;top:52%;height:2.5px;border-radius:2px;background:var(--gold-hi);transform:rotate(-10deg) scaleX(0);transform-origin:left center;transition:transform .7s cubic-bezier(.65,0,.35,1) .35s}
 .is-drawn .price-was::after{transform:rotate(-10deg) scaleX(1)}
 .deal-window{margin-top:8px;color:var(--muted);font-size:.9rem}
-.pay-note{display:flex;align-items:center;gap:10px;margin-top:16px;font-weight:700}
-.pay-note .ico{color:var(--gold)}
+.pay-note{display:flex;align-items:flex-start;gap:10px;margin-top:16px;font-weight:700;line-height:1.45}
+.pay-note .ico{color:var(--gold);margin-top:2px}
 .id-note{margin-top:6px;color:var(--muted);font-size:.95rem}
+.pay-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pay-chips li{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:7px 12px;border-radius:999px;border:1px solid rgba(214,178,94,.4);background:rgba(214,178,94,.08);color:var(--gold-hi)}
 
 /* Compare */
 .compare{display:grid;gap:14px;grid-template-columns:1fr}
@@ -263,10 +272,10 @@ html:not(.age-ok) #site{visibility:hidden}
 .compare-callout .btn{flex:none}
 
 /* Proofs */
-.proofs{display:grid;gap:14px;grid-template-columns:1fr}
+.proofs{display:grid;gap:14px;grid-template-columns:1fr;align-items:start}
 @media (min-width:620px){.proofs{grid-template-columns:1fr 1fr}}
 @media (min-width:980px){.proofs{grid-template-columns:repeat(3,1fr)}}
-.rev{display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(255,255,255,.045),rgba(255,255,255,.012));transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,background-color .4s}
+.rev{display:flex;flex-direction:column;gap:11px;padding:16px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(255,255,255,.045),rgba(255,255,255,.012));transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,background-color .4s}
 @media (hover:hover){.rev:hover{transform:translateY(-3px);border-color:rgba(214,178,94,.4)}}
 .rev-head{display:flex;align-items:center;gap:10px}
 .av{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:.78rem;font-weight:800;color:#17120a;background:var(--grad-gold);letter-spacing:-.02em}
@@ -274,19 +283,18 @@ html:not(.age-ok) #site{visibility:hidden}
 .rev-who strong{font-size:.85rem;font-weight:800;letter-spacing:-.01em}
 .rev-who span{font-size:.7rem;color:var(--muted);font-weight:600}
 .stars{color:var(--gold);font-size:.82rem;letter-spacing:.14em;line-height:1}
+.stars .off{color:rgba(255,255,255,.22)}
 .rev p{font-size:.92rem;color:#ddd8ce;line-height:1.5}
-.rev .when{margin-top:auto;font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.rev .when{margin-top:auto;padding-top:2px;font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
 .rev .when::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
-.rev-photo{aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#101012}
-.rev-photo img{width:100%;height:100%;object-fit:cover}
 .proof-note{margin-top:22px;text-align:center;color:var(--muted);font-size:.78rem;letter-spacing:.02em}
 .proof-strip{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:.85rem;font-weight:600}
 .proof-strip b{color:var(--gold-hi);font-weight:800}
 
 /* Delivery */
-.hand-only{font-size:clamp(1.25rem,5.4vw,1.75rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;padding:16px 18px;border-radius:16px;border:1px solid rgba(214,178,94,.45);background:rgba(214,178,94,.09);margin-bottom:20px}
+.hand-only{font-size:clamp(1.2rem,5.2vw,1.75rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;padding:16px 18px;border-radius:16px;border:1px solid rgba(214,178,94,.45);background:rgba(214,178,94,.09);margin-bottom:20px}
 .map-card{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#0d0d0f;isolation:isolate}
-#map{height:380px;width:100%;background:#0d0d0f}
+#map{height:340px;width:100%;background:#0d0d0f}
 @media (min-width:900px){#map{height:480px}}
 .map-fallback{padding:40px 24px;color:var(--muted);text-align:center}
 .map-toggle{position:absolute;left:12px;bottom:12px;z-index:500;min-height:44px;padding:0 14px;border-radius:12px;background:rgba(10,10,11,.88);border:1px solid rgba(214,178,94,.55);font-weight:700;font-size:.9rem}
@@ -308,8 +316,8 @@ html:not(.age-ok) #site{visibility:hidden}
 @media (min-width:940px){.refer-shell{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
 .give-get{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
 .gg{padding:18px;border-radius:20px;border:1px solid var(--frost-dim);background:linear-gradient(160deg,rgba(207,230,245,.11),rgba(255,255,255,.02))}
-.gg strong{display:block;font-size:1.55rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--frost)}
-.gg span{display:block;font-size:.9rem;color:var(--muted);margin-top:6px;line-height:1.4}
+.gg strong{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--frost)}
+.gg span{display:block;font-size:.88rem;color:var(--muted);margin-top:6px;line-height:1.4}
 .gg.gold{border-color:rgba(214,178,94,.4);background:linear-gradient(160deg,rgba(214,178,94,.12),rgba(255,255,255,.02))}
 .gg.gold strong{color:var(--gold-hi)}
 .refer-steps{display:grid;gap:12px;margin-top:22px}
@@ -324,7 +332,7 @@ html:not(.age-ok) #site{visibility:hidden}
 .field input:focus{outline:none;border-color:var(--frost);box-shadow:0 0 0 3px rgba(207,230,245,.14)}
 .code-out{margin-top:14px;padding:18px 16px;border-radius:16px;border:1px dashed var(--frost-dim);background:rgba(0,0,0,.4);text-align:center}
 .code-out .lbl{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.code-val{display:block;margin-top:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:clamp(1.15rem,5vw,1.5rem);font-weight:800;letter-spacing:.1em;color:var(--frost);word-break:break-all}
+.code-val{display:block;margin-top:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:clamp(1.1rem,4.8vw,1.5rem);font-weight:800;letter-spacing:.1em;color:var(--frost);word-break:break-all}
 .code-val.pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
 @keyframes pop{0%{transform:scale(.86);opacity:.2}100%{transform:scale(1);opacity:1}}
 .code-actions{display:grid;gap:10px;margin-top:14px}
@@ -336,11 +344,11 @@ html:not(.age-ok) #site{visibility:hidden}
 .copy-state{color:var(--gold-hi);font-weight:700;font-size:.85rem;text-align:center;margin-top:8px;min-height:1.2em}
 
 /* Steps */
-.steps{position:relative;display:grid;gap:18px}
+.steps{position:relative;display:grid;gap:16px}
 .steps-line{position:absolute;left:46px;top:46px;bottom:46px;width:2px;background:linear-gradient(var(--gold),rgba(214,178,94,.15));transform-origin:top center;z-index:-1}
 .step{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;padding:18px;border-radius:20px;background:var(--panel-solid);border:1px solid var(--line)}
 .step-num{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:1.3rem;color:#17120a;background:var(--grad-gold);box-shadow:0 0 0 6px rgba(214,178,94,.12),0 10px 30px -10px rgba(214,178,94,.7)}
-.step h3{font-size:1.22rem;letter-spacing:-.01em;margin-top:4px}
+.step h3{font-size:1.2rem;letter-spacing:-.01em;margin-top:4px}
 .step p{color:#cfc9be;margin-top:4px}
 @media (min-width:900px){
   .steps{grid-template-columns:repeat(3,1fr);gap:22px}
@@ -354,23 +362,27 @@ html:not(.age-ok) #site{visibility:hidden}
 .contact-card{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;min-height:96px;padding:18px 20px;border-radius:22px;text-decoration:none;border:1px solid rgba(214,178,94,.4);background:linear-gradient(160deg,rgba(214,178,94,.12),rgba(255,255,255,.02));transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s;-webkit-tap-highlight-color:transparent}
 .contact-card:active{transform:scale(.98)}
 .contact-card.tg{background:var(--grad-gold);color:#17120a;border-color:transparent;box-shadow:0 16px 40px -18px rgba(214,178,94,.7)}
+.contact-card.snap{background:var(--grad-snap);color:#101010;border-color:transparent;box-shadow:0 16px 40px -18px rgba(255,252,0,.6)}
 .cc-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex:none;background:rgba(214,178,94,.14);color:var(--gold-hi)}
 .tg .cc-icon{background:rgba(0,0,0,.14);color:#17120a}
+.snap .cc-icon{background:rgba(0,0,0,.12);color:#101010}
 .cc-icon .ico{width:26px;height:26px}
 .cc-text{display:grid;flex:1;min-width:0}
-.cc-text strong{font-size:1.15rem;font-weight:800;letter-spacing:-.01em}
+.cc-text strong{font-size:1.12rem;font-weight:800;letter-spacing:-.01em}
 .cc-text span{font-size:1rem;opacity:.82;font-weight:600}
 .cc-arrow{width:22px;height:22px;flex:none;transition:transform .3s}
 @media (hover:hover){.contact-card:hover{transform:translateY(-3px)}.contact-card:hover .cc-arrow{transform:translateX(4px)}}
 .contact-foot{text-align:center;color:var(--muted);margin-top:22px;font-size:.95rem}
+.contact-foot b{color:var(--gold-hi)}
 
 /* Footer */
-.footer{padding:56px 0 40px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
-.warning{position:relative;background:linear-gradient(160deg,rgba(214,178,94,.13),rgba(255,255,255,.02) 70%);color:var(--ink);border:1px solid rgba(214,178,94,.34);border-left:3px solid var(--gold);border-radius:14px;padding:16px 18px 16px 20px;display:grid;gap:6px;font-size:.92rem;line-height:1.45;font-weight:600;margin-bottom:36px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.footer{padding:52px 0 40px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
+.warning{position:relative;background:linear-gradient(160deg,rgba(214,178,94,.13),rgba(255,255,255,.02) 70%);color:var(--ink);border:1px solid rgba(214,178,94,.34);border-left:3px solid var(--gold);border-radius:14px;padding:16px 18px 16px 20px;display:grid;gap:6px;font-size:.92rem;line-height:1.45;font-weight:600;margin-bottom:32px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
 .warning strong{color:var(--gold-hi);font-weight:800;letter-spacing:.1em;font-size:.82rem}
 .warning p:not(:first-child){color:#cfc9be}
 .foot-grid{display:grid;gap:6px;color:var(--muted);font-size:.92rem}
 .foot-grid .wordmark{font-size:1.5rem;margin-bottom:10px}
+.foot-pay{color:var(--gold-hi);font-weight:700}
 .copy{margin-top:14px;font-size:.82rem;opacity:.7}
 
 /* Sticky mobile bar */
@@ -491,12 +503,13 @@ html.lb-open{overflow:hidden}
   </symbol>
 
   <symbol id="i-send" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 10.5l6.5 2.5L12 20l3-5.5"/><path d="M21 3 9.5 13M21 3l-6 12"/></g></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="2.6"/></g></symbol>
+  <symbol id="i-snap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.1c3.15 0 5.25 2.15 5.25 5.35 0 .95-.1 1.8-.22 2.45.5.2 1.12.14 1.62-.18.62-.4 1.24.42.8 1.06-.5.74-1.6 1.24-2.32 1.55.62 1.72 2.02 3.02 3.55 3.45.6.18.5.9-.1 1.1-.9.3-1.72.5-2.02 1.02-.2.4-.1.92-.7.92-.6 0-1.32-.2-2.02.1-.7.3-1.32 1.1-2.32 1.4-.72.2-1.42.2-2.12 0-1-.3-1.62-1.1-2.32-1.4-.7-.3-1.42-.1-2.02-.1-.6 0-.5-.52-.7-.92-.3-.52-1.12-.72-2.02-1.02-.6-.2-.7-.92-.1-1.1 1.53-.43 2.93-1.73 3.55-3.45-.72-.31-1.82-.81-2.32-1.55-.44-.64.18-1.46.8-1.06.5.32 1.12.38 1.62.18-.12-.65-.22-1.5-.22-2.45 0-3.2 2.1-5.35 5.25-5.35Z"/></symbol>
   <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-hand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3l4.5 1.5a1.5 1.5 0 0 1-.5 3H8"/><path d="M6 20h7l7-4a1.6 1.6 0 0 0-1.6-2.7L14 15"/><rect x="11" y="4" width="8" height="7" rx="1.5"/></g></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/></g></symbol>
   <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M3 13h18M12 9v12"/><path d="M12 9S10.5 4 8 4a2.5 2.5 0 0 0 0 5M12 9s1.5-5 4-5a2.5 2.5 0 0 1 0 5"/></g></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 5.5V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1.5"/></g></symbol>
   <symbol id="i-snow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 2v20M3.5 7l17 10M20.5 7l-17 10"/><path d="M9 4l3 2.6L15 4M9 20l3-2.6L15 20"/></g></symbol>
@@ -508,11 +521,11 @@ html.lb-open{overflow:hidden}
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
   <div class="gate-card">
     <div class="wordmark">Yarts<span>ForAll</span><svg class="leaf" aria-hidden="true"><use href="#i-leaf"/></svg></div>
-    <h2 id="gateTitle">We don't give a fuck about your age. Just come in.</h2>
+    <h2 id="gateTitle">Regardless of your age, you may enter.</h2>
     <p id="gateDesc">It's cannabis, not a bank. No forms, no cart, no account.</p>
     <div class="gate-actions">
-      <button class="btn btn-gold" id="gateYes" type="button">Let me in</button>
-      <button class="btn btn-ghost" id="gateNo" type="button">Bounce</button>
+      <button class="btn btn-gold" id="gateYes" type="button">Enter</button>
+      <button class="btn btn-ghost" id="gateNo" type="button">Leave</button>
     </div>
     <noscript><p style="margin-top:16px">Please enable JavaScript to enter this site.</p></noscript>
   </div>
@@ -552,13 +565,13 @@ html.lb-open{overflow:hidden}
         <p class="hero-sub" data-hero>Sherbinskis Quattro live resin, 2 grams, delivered by hand in Flatbush and Sheepshead Bay. $60 down to $35 for the holidays.</p>
         <div class="btn-row hero-ctas">
           <a class="btn btn-gold" data-hero data-contact="telegram" href="https://t.me/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>Order on Telegram</a>
-          <a class="btn btn-ghost" data-hero data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Order on WhatsApp</a>
+          <a class="btn btn-snap" data-hero data-contact="snapchat" href="https://snapchat.com/add/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-snap"/></svg>Order on Snapchat</a>
         </div>
         <dl class="facts">
           <div data-hero><dt>What</dt><dd data-product-short>Sherbinskis Quattro 2g Live Resin</dd></div>
           <div data-hero><dt>Where</dt><dd>Flatbush &amp; Sheepshead Bay</dd></div>
           <div data-hero><dt>Price</dt><dd><span data-price-short>$35</span><s data-price-was-short hidden>$60</s><small data-price-tag-short></small></dd></div>
-          <div data-hero><dt>Pay</dt><dd>In person at handoff</dd></div>
+          <div data-hero><dt>Pay</dt><dd>Cash · PayPal · Venmo · Cash App</dd></div>
         </dl>
         <p class="id-line" data-hero><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg>We meet you, you pay, that's the whole thing.</p>
       </div>
@@ -601,9 +614,12 @@ html.lb-open{overflow:hidden}
 
           <div class="btn-row" data-reveal>
             <a class="btn btn-gold" data-contact="telegram" href="https://t.me/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>Order on Telegram</a>
-            <a class="btn btn-ghost" data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Order on WhatsApp</a>
+            <a class="btn btn-snap" data-contact="snapchat" href="https://snapchat.com/add/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-snap"/></svg>Order on Snapchat</a>
           </div>
-          <p class="pay-note" data-reveal><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg>Payment is made in person at hand delivery.</p>
+          <p class="pay-note" data-reveal><svg class="ico" aria-hidden="true"><use href="#i-cash"/></svg><span>Payment at handoff, in person. We take cash, PayPal, Venmo or Cash App — nothing else.</span></p>
+          <ul class="pay-chips" data-reveal>
+            <li>Cash</li><li>PayPal</li><li>Venmo</li><li>Cash App</li>
+          </ul>
           <p class="id-note" data-reveal>No cart, no online checkout.</p>
         </div>
       </div>
@@ -712,7 +728,7 @@ html.lb-open{overflow:hidden}
 
         <div class="compare-callout" data-reveal>
           <p>Every one of them is $45 or more. We're <b>$35</b>, at the door.</p>
-          <a class="btn btn-gold" data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Order it</a>
+          <a class="btn btn-snap" data-contact="snapchat" href="https://snapchat.com/add/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-snap"/></svg>Order it</a>
         </div>
 
         <p class="note-line">Cropped from live menus. Prices rounded, before their fees and minimums.</p>
@@ -733,7 +749,6 @@ html.lb-open{overflow:hidden}
             <div class="rev-head"><span class="av" aria-hidden="true">MR</span><div class="rev-who"><strong>Marisol R.</strong><span>Sheepshead Bay</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
             <p>w cop fr. both chambers hit different and the double click thing is actually the move. cotton candy one is dangerous tho.</p>
-            <div class="rev-photo"><img class="pimg rp" alt="" style="object-position:50% 30%"></div>
             <p class="when">3 days ago</p>
           </article>
 
@@ -745,14 +760,6 @@ html.lb-open{overflow:hidden}
           </article>
 
           <article class="rev" data-reveal>
-            <div class="rev-head"><span class="av" aria-hidden="true">JN</span><div class="rev-who"><strong>Jay N.</strong><span>Flatbush</span></div></div>
-            <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>im buying again. already on my second one, this is my whole night now. met the guy on the corner in like 20 min.</p>
-            <div class="rev-photo"><img class="pimg rp" alt="" style="object-position:50% 55%"></div>
-            <p class="when">5 days ago</p>
-          </article>
-
-          <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">AB</span><div class="rev-who"><strong>Abe B.</strong><span>Sheepshead Bay</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
             <p>i js told my friend abt it and got a discount code from the site and im getting it even cheaper. he's getting one too. we both ate.</p>
@@ -760,11 +767,24 @@ html.lb-open{overflow:hidden}
           </article>
 
           <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">RW</span><div class="rev-who"><strong>Rivky W.</strong><span>Flatbush</span></div></div>
+            <div class="stars" aria-label="4 out of 5">★★★★<span class="off">★</span></div>
+            <p>tastes good and hits strong, no complaints there. dropped it to 4 bc the cotton candy side leaked a little in my pocket. delivery itself was quick.</p>
+            <p class="when">4 days ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
             <div class="rev-head"><span class="av" aria-hidden="true">TS</span><div class="rev-who"><strong>Tanya S.</strong><span>Flatbush</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
             <p>ain't gonna lie i was skeptical bc the price is low but it's the real one, sealed, box and all. not a knockoff.</p>
-            <div class="rev-photo"><img class="pimg rp" alt="" style="object-position:50% 40%"></div>
             <p class="when">4 days ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">MK</span><div class="rev-who"><strong>Moishe K.</strong><span>Sheepshead Bay</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>paid with venmo, no drama, guy showed up when he said. second one already. this is the only menu i use now.</p>
+            <p class="when">5 days ago</p>
           </article>
 
           <article class="rev" data-reveal>
@@ -775,16 +795,9 @@ html.lb-open{overflow:hidden}
           </article>
 
           <article class="rev" data-reveal>
-            <div class="rev-head"><span class="av" aria-hidden="true">KM</span><div class="rev-who"><strong>Kai M.</strong><span>Flatbush</span></div></div>
+            <div class="rev-head"><span class="av" aria-hidden="true">CR</span><div class="rev-who"><strong>Chaya R.</strong><span>Flatbush</span></div></div>
             <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>quattro got me through finals week no cap. 2g lasts forever compared to the little ones.</p>
-            <p class="when">2 weeks ago</p>
-          </article>
-
-          <article class="rev" data-reveal>
-            <div class="rev-head"><span class="av" aria-hidden="true">LO</span><div class="rev-who"><strong>Lena O.</strong><span>Sheepshead Bay</span></div></div>
-            <div class="stars" aria-label="5 out of 5">★★★★★</div>
-            <p>cotton candy is the one. that's it that's the review. bought two more for the holidays.</p>
+            <p>my husband doesn't even smoke and he liked the pink cherry. 2g lasted us almost two weeks. will be back before the holidays.</p>
             <p class="when">6 days ago</p>
           </article>
 
@@ -835,7 +848,7 @@ html.lb-open{overflow:hidden}
             <header class="sec-head" data-reveal style="margin-bottom:18px">
               <p class="eyebrow frost"><span class="dot"></span>Refer a friend</p>
               <h2 id="referTitle">Give $5.<br>Get $5.</h2>
-              <p class="lead">Bring someone in, you both save. Codes are made by hand — message us on WhatsApp or Telegram, we set you up with one.</p>
+              <p class="lead">Bring someone in, you both save. Codes are made by hand — message us on Snapchat or Telegram, we set you up with one.</p>
             </header>
 
             <div class="give-get" data-reveal>
@@ -844,7 +857,7 @@ html.lb-open{overflow:hidden}
             </div>
 
             <ol class="refer-steps" data-reveal>
-              <li><b>1</b><span>Message us on WhatsApp or Telegram and ask for a referral code. We make one with your name on it.</span></li>
+              <li><b>1</b><span>Message us on Snapchat or Telegram and ask for a referral code. We make one with your name on it.</span></li>
               <li><b>2</b><span>Send your code to a friend. They send it to us with their order and take $5 off.</span></li>
               <li><b>3</b><span>When their order lands, your $5 comes off your next one. Every friend, every time.</span></li>
             </ol>
@@ -874,7 +887,7 @@ html.lb-open{overflow:hidden}
             </div>
             <p class="copy-state" id="codeState" aria-live="polite"></p>
             <div class="btn-row" style="margin-top:6px">
-              <a class="btn btn-gold" id="codeWa" data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Send on WhatsApp</a>
+              <a class="btn btn-snap" id="codeSnap" data-contact="snapchat" href="https://snapchat.com/add/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-snap"/></svg>Copy msg &amp; Snap</a>
               <a class="btn btn-ghost" id="codeTg" data-contact="telegram" href="https://t.me/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>Send on Telegram</a>
             </div>
             <p class="fine" style="margin-top:14px">A generated code is a suggestion until we confirm it on our end.</p>
@@ -892,9 +905,9 @@ html.lb-open{overflow:hidden}
         </header>
         <ol class="steps">
           <span class="steps-line" aria-hidden="true"></span>
-          <li class="step" data-reveal><span class="step-num" aria-hidden="true">1</span><div><h3>Message us</h3><p>Send us a message on Telegram or WhatsApp. Have a code? Drop it in.</p></div></li>
+          <li class="step" data-reveal><span class="step-num" aria-hidden="true">1</span><div><h3>Message us</h3><p>Send us a message on Telegram or Snapchat. Have a code? Drop it in.</p></div></li>
           <li class="step" data-reveal><span class="step-num" aria-hidden="true">2</span><div><h3>We confirm</h3><p>We confirm your area and a delivery time.</p></div></li>
-          <li class="step" data-reveal><span class="step-num" aria-hidden="true">3</span><div><h3>Meet in person</h3><p>We meet you, you pay, done.</p></div></li>
+          <li class="step" data-reveal><span class="step-num" aria-hidden="true">3</span><div><h3>Meet in person</h3><p>We meet you, you pay cash, PayPal, Venmo or Cash App, done.</p></div></li>
         </ol>
       </div>
     </section>
@@ -913,13 +926,13 @@ html.lb-open{overflow:hidden}
             <span class="cc-text"><strong>Message on Telegram</strong><span data-handle="telegram">@yartsforall</span></span>
             <svg class="cc-arrow" aria-hidden="true"><use href="#i-chev-r"/></svg>
           </a>
-          <a class="contact-card" data-reveal data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer">
-            <span class="cc-icon"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
-            <span class="cc-text"><strong>Message on WhatsApp</strong><span data-handle="whatsapp">(929) 223-8564</span></span>
+          <a class="contact-card snap" data-reveal data-contact="snapchat" href="https://snapchat.com/add/yartsforall" target="_blank" rel="noopener noreferrer">
+            <span class="cc-icon"><svg class="ico" aria-hidden="true"><use href="#i-snap"/></svg></span>
+            <span class="cc-text"><strong>Add on Snapchat</strong><span data-handle="snapchat">@yartsforall</span></span>
             <svg class="cc-arrow" aria-hidden="true"><use href="#i-chev-r"/></svg>
           </a>
         </div>
-        <p class="contact-foot">Payment in person at handoff.</p>
+        <p class="contact-foot">Paid in person at handoff. <b>Cash, PayPal, Venmo or Cash App only.</b></p>
       </div>
     </section>
   </main>
@@ -937,6 +950,7 @@ html.lb-open{overflow:hidden}
         <p>For all ages, fuck the paperwork.</p>
         <p>Keep out of reach of children and pets.</p>
         <p>Hand delivery in Flatbush and Sheepshead Bay, Brooklyn, NY. No shipping.</p>
+        <p class="foot-pay">Cash, PayPal, Venmo, Cash App — paid in person, at the handoff.</p>
         <p class="copy">© <span id="year">2026</span> YartsForAll</p>
       </div>
     </div>
@@ -944,7 +958,7 @@ html.lb-open{overflow:hidden}
 
   <div class="sticky" id="sticky" role="region" aria-label="Quick order">
     <a class="btn btn-gold" data-contact="telegram" href="https://t.me/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>Telegram</a>
-    <a class="btn btn-ghost" data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</a>
+    <a class="btn btn-snap" data-contact="snapchat" href="https://snapchat.com/add/yartsforall" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-snap"/></svg>Snapchat</a>
   </div>
 </div>
 
@@ -977,12 +991,9 @@ const PRODUCT = {
 /* The single product photo. Swap this one string to change every product image on the page. */
 const PHOTO = "https://cdn.discordapp.com/attachments/1564857466825736233/1574294789556543610/image-removebg-preview.png?ex=6b051fc6&is=6b03ce46&hm=d0c413ca0bac5f4daa441b0a1c6945a3cd9c76d2e5b40df09eca1eff417b7c58&";
 
-/* Customer photos for the proofs section. Point these at real shots when you have them. */
-const REVIEW_PHOTOS = [PHOTO, PHOTO, PHOTO];
-
 const CONTACT = {
   telegram: { url: "https://t.me/yartsforall", handle: "@yartsforall" },
-  whatsapp: { url: "https://wa.me/19292238564", display: "(929) 223-8564", number: "19292238564" },
+  snapchat: { url: "https://snapchat.com/add/yartsforall", handle: "@yartsforall" },
 };
 
 /* One photo, four framings. Set `src: ""` on an entry to use the SVG fallback instead. */
@@ -1023,9 +1034,9 @@ let domReady = false, passed = false, motionStarted = false;
 /* ---------- Contact, product text ---------- */
 function applyConfig() {
   $$('[data-contact="telegram"]').forEach(a => a.href = CONTACT.telegram.url);
-  $$('[data-contact="whatsapp"]').forEach(a => a.href = CONTACT.whatsapp.url);
+  $$('[data-contact="snapchat"]').forEach(a => a.href = CONTACT.snapchat.url);
   $$('[data-handle="telegram"]').forEach(e => e.textContent = CONTACT.telegram.handle);
-  $$('[data-handle="whatsapp"]').forEach(e => e.textContent = CONTACT.whatsapp.display);
+  $$('[data-handle="snapchat"]').forEach(e => e.textContent = CONTACT.snapchat.handle);
   $('#productTitle').textContent = PRODUCT.name;
   $('#productSize').textContent = PRODUCT.size;
   $$('[data-product-short]').forEach(e => e.textContent = `${PRODUCT.name} ${PRODUCT.size}`);
@@ -1039,9 +1050,7 @@ function fillImages() {
     if (img.dataset.done) return;
     img.dataset.done = '1';
     img.addEventListener('error', () => { img.style.visibility = 'hidden'; }, { once: true });
-    img.src = img.classList.contains('rp')
-      ? REVIEW_PHOTOS[Math.floor(Math.random() * REVIEW_PHOTOS.length)] || PHOTO
-      : PHOTO;
+    img.src = PHOTO;
   });
 }
 
@@ -1262,6 +1271,8 @@ function closeLightbox() {
 
 /* ---------- Referral code builder ---------- */
 const CODE_KEY = 'yfa_ref_code';
+const snapMessage = code => `Hey YartsForAll — here's my referral code: ${code}. Please lock it in so my friend gets $5 off.`;
+
 function initRefer() {
   const input = $('#codeName'), out = $('#codeVal'), state = $('#codeState');
   if (!input || !out) return;
@@ -1271,11 +1282,13 @@ function initRefer() {
     const tail = Array.from({ length: 3 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 32)]).join('');
     return `YFA-${base}${tail}`;
   };
+
   const syncLinks = code => {
-    const wa = $('#codeWa');
-    if (wa) {
-      const msg = `Hey YartsForAll — here's my referral code: ${code}. Please lock it in so my friend gets $5 off.`;
-      wa.href = `https://wa.me/${CONTACT.whatsapp.number}?text=${encodeURIComponent(msg)}`;
+    const snap = $('#codeSnap');
+    if (snap) {
+      snap.href = CONTACT.snapchat.url;
+      snap.dataset.msg = code ? snapMessage(code) : '';
+      snap.title = code ? `Copy message with code ${code} and open Snapchat` : 'Open Snapchat';
     }
     const tg = $('#codeTg');
     if (tg) {
@@ -1318,6 +1331,19 @@ function initRefer() {
       sel.removeAllRanges();
       sel.addRange(r);
       state.textContent = 'Selected — copy it.';
+    }
+  });
+
+  // Snapchat can't prefill text, so copy the message first, then let the add link open.
+  $('#codeSnap').addEventListener('click', async () => {
+    const code = out.textContent.trim();
+    const msg = code && !code.includes('_') ? snapMessage(code) : '';
+    if (!msg) { state.textContent = 'Make a code first — then it copies a ready message.'; return; }
+    try {
+      await navigator.clipboard.writeText(msg);
+      state.textContent = 'Message copied — paste it to us in Snapchat.';
+    } catch (e) {
+      state.textContent = 'Snapchat opened — send us your code.';
     }
   });
 }
