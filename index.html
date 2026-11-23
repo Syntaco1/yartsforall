@@ -112,15 +112,16 @@ html:not(.age-ok) #site{visibility:hidden}
 /* Nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:40;height:calc(var(--nav) + env(safe-area-inset-top));padding:env(safe-area-inset-top) 20px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:background-color .3s,border-color .3s}
 .nav.scrolled{background:rgba(10,10,11,.88);border-color:var(--line)}
-.nav nav{display:none;gap:26px}
-.nav nav a{text-decoration:none;color:#cfc9be;font-weight:600;font-size:.95rem;transition:color .2s}
+.nav nav{display:none;gap:18px}
+.nav nav a{text-decoration:none;color:#cfc9be;font-weight:600;font-size:.9rem;transition:color .2s}
 .nav nav a:hover{color:var(--gold-hi)}
 .nav nav a.hot{color:var(--frost)}
 @media (min-width:900px){
-  .nav{padding-left:40px;padding-right:40px}
+  .nav{padding-left:32px;padding-right:32px}
   .nav nav{display:flex}
   .nav.scrolled{background:rgba(10,10,11,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 }
+@media (min-width:1080px){.nav nav{gap:26px}.nav nav a{font-size:.95rem}}
 .wordmark{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:1.3rem;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}
 .wordmark span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .leaf{width:20px;height:20px;flex:none;color:var(--gold);transform-origin:50% 88%;animation:sway 5.5s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(214,178,94,.45))}
@@ -136,6 +137,7 @@ html:not(.age-ok) #site{visibility:hidden}
 .sec-head h2{font-size:clamp(2rem,8.4vw,3.4rem);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin-top:10px}
 .lead{color:#cfc9be;font-size:1.08rem;margin-top:14px}
 .center{text-align:center;margin-left:auto;margin-right:auto}
+.note-line{color:var(--muted);font-size:.82rem;margin-top:18px;text-align:center}
 @media (min-width:900px){.section{padding:120px 0}}
 
 /* Hero */
@@ -229,6 +231,57 @@ html:not(.age-ok) #site{visibility:hidden}
 .pay-note{display:flex;align-items:center;gap:10px;margin-top:16px;font-weight:700}
 .pay-note .ico{color:var(--gold)}
 .id-note{margin-top:6px;color:var(--muted);font-size:.95rem}
+
+/* Compare */
+.compare{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:560px){.compare{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.compare{grid-template-columns:repeat(3,1fr)}}
+.shot{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(170deg,#141416,#0b0b0d);box-shadow:0 18px 40px -26px rgba(0,0,0,.9);transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s}
+@media (hover:hover){.shot:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.2)}}
+.shot-bar{display:flex;align-items:center;gap:5px;padding:9px 11px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.035)}
+.shot-bar i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.16);flex:none}
+.shot-url{flex:1;margin-left:5px;font-size:.6rem;color:#8f8a82;background:rgba(0,0,0,.45);border-radius:5px;padding:3px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.01em}
+.shot-body{padding:13px 13px 15px;display:grid;gap:10px}
+.shot-store{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.shot-prod{display:flex;gap:10px;align-items:center}
+.shot-thumb{width:42px;height:54px;border-radius:8px;flex:none;overflow:hidden;display:grid;place-items:center;background:radial-gradient(closest-side,rgba(214,178,94,.16),transparent),#101012;border:1px solid var(--line)}
+.shot-thumb img{width:100%;height:100%;object-fit:contain;padding:2px}
+.shot-name{font-size:.78rem;font-weight:700;line-height:1.3;color:#d8d2c7}
+.shot-price{display:flex;align-items:baseline;gap:8px;margin-top:4px}
+.shot-price b{font-size:1.35rem;font-weight:800;color:#e8a4b2;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.shot-price span{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.shot-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:9px;border-top:1px solid var(--line)}
+.shot-foot .tag{font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8f8a82}
+.shot-foot .save{font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-hi)}
+.shot.us{border-color:rgba(214,178,94,.55);background:linear-gradient(170deg,rgba(214,178,94,.16),rgba(12,12,14,.96) 65%);box-shadow:0 0 0 1px rgba(241,214,143,.3),0 22px 50px -26px rgba(214,178,94,.55)}
+.shot.us .shot-price b{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.75rem}
+.shot.us .shot-foot .tag{color:var(--gold)}
+.shot.us::after{content:"CHEAPEST";position:absolute;top:9px;right:9px;font-size:.55rem;font-weight:800;letter-spacing:.14em;padding:4px 8px;border-radius:999px;background:var(--grad-gold);color:#1a1405}
+.compare-callout{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;padding:18px 20px;border-radius:18px;border:1px solid rgba(214,178,94,.4);background:linear-gradient(120deg,rgba(214,178,94,.14),rgba(255,255,255,.02))}
+.compare-callout p{font-weight:800;font-size:clamp(1.05rem,4vw,1.35rem);letter-spacing:-.02em}
+.compare-callout p b{color:var(--gold-hi)}
+.compare-callout .btn{flex:none}
+
+/* Proofs */
+.proofs{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:620px){.proofs{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.proofs{grid-template-columns:repeat(3,1fr)}}
+.rev{display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(255,255,255,.045),rgba(255,255,255,.012));transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,background-color .4s}
+@media (hover:hover){.rev:hover{transform:translateY(-3px);border-color:rgba(214,178,94,.4)}}
+.rev-head{display:flex;align-items:center;gap:10px}
+.av{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:.78rem;font-weight:800;color:#17120a;background:var(--grad-gold);letter-spacing:-.02em}
+.rev-who{display:grid;line-height:1.25;min-width:0}
+.rev-who strong{font-size:.85rem;font-weight:800;letter-spacing:-.01em}
+.rev-who span{font-size:.7rem;color:var(--muted);font-weight:600}
+.stars{color:var(--gold);font-size:.82rem;letter-spacing:.14em;line-height:1}
+.rev p{font-size:.92rem;color:#ddd8ce;line-height:1.5}
+.rev .when{margin-top:auto;font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.rev .when::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
+.rev-photo{aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#101012}
+.rev-photo img{width:100%;height:100%;object-fit:cover}
+.proof-note{margin-top:22px;text-align:center;color:var(--muted);font-size:.78rem;letter-spacing:.02em}
+.proof-strip{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:8px;color:var(--muted);font-size:.85rem;font-weight:600}
+.proof-strip b{color:var(--gold-hi);font-weight:800}
 
 /* Delivery */
 .hand-only{font-size:clamp(1.25rem,5.4vw,1.75rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;padding:16px 18px;border-radius:16px;border:1px solid rgba(214,178,94,.45);background:rgba(214,178,94,.09);margin-bottom:20px}
@@ -448,6 +501,7 @@ html.lb-open{overflow:hidden}
   <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 5.5V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1.5"/></g></symbol>
   <symbol id="i-snow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 2v20M3.5 7l17 10M20.5 7l-17 10"/><path d="M9 4l3 2.6L15 4M9 20l3-2.6L15 20"/></g></symbol>
   <symbol id="i-tap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6.5a2 2 0 1 1 4 0V12"/><path d="M13 10.5a2 2 0 1 1 4 0V15a5 5 0 0 1-5 5h-1.5a5 5 0 0 1-4.3-2.4L4 14.5a1.8 1.8 0 0 1 3-2l1.6 2"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <!-- AGE GATE -->
@@ -469,6 +523,8 @@ html.lb-open{overflow:hidden}
     <a href="#top" class="wordmark" aria-label="YartsForAll home">Yarts<span>ForAll</span><svg class="leaf" aria-hidden="true"><use href="#i-leaf"/></svg></a>
     <nav aria-label="Primary">
       <a href="#product">Product</a>
+      <a href="#compare">Compare</a>
+      <a href="#proofs">Proofs</a>
       <a href="#delivery">Delivery</a>
       <a href="#refer" class="hot">Refer</a>
       <a href="#how">How it works</a>
@@ -550,6 +606,203 @@ html.lb-open{overflow:hidden}
           <p class="pay-note" data-reveal><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg>Payment is made in person at hand delivery.</p>
           <p class="id-note" data-reveal>No cart, no online checkout.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section class="section" id="compare" aria-labelledby="compareTitle">
+      <div class="wrap">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow"><span class="dot"></span>Price check</p>
+          <h2 id="compareTitle">Same pod. They want $45+.</h2>
+          <p class="lead">This exact device, this exact flavor. Here's what other menus are asking and what we ask.</p>
+        </header>
+
+        <div class="compare">
+          <article class="shot us" data-reveal>
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-url">yartsforall.com</span></div>
+            <div class="shot-body">
+              <p class="shot-store">Us · hand delivery</p>
+              <div class="shot-prod">
+                <div class="shot-thumb"><img class="pimg" alt=""></div>
+                <div>
+                  <p class="shot-name">Sherbinskis Quattro 2g<br>Pink Cherry x Cotton Candy</p>
+                  <div class="shot-price"><b>$35</b><span>handoff</span></div>
+                </div>
+              </div>
+              <div class="shot-foot"><span class="tag">Flatbush · Sheepshead</span><span class="save">no fees</span></div>
+            </div>
+          </article>
+
+          <article class="shot" data-reveal>
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-url">freesmokenyc.com / product</span></div>
+            <div class="shot-body">
+              <p class="shot-store">Free Smoke NYC</p>
+              <div class="shot-prod">
+                <div class="shot-thumb"><img class="pimg" alt=""></div>
+                <div>
+                  <p class="shot-name">Sherbinskis Quattro 2g<br>Pink Cherry x Cotton Candy</p>
+                  <div class="shot-price"><b>$60</b><span>menu</span></div>
+                </div>
+              </div>
+              <div class="shot-foot"><span class="tag">sold out often</span><span class="save">+$25</span></div>
+            </div>
+          </article>
+
+          <article class="shot" data-reveal>
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-url">gothambuds.nyc / shop / vapes</span></div>
+            <div class="shot-body">
+              <p class="shot-store">Gotham Buds</p>
+              <div class="shot-prod">
+                <div class="shot-thumb"><img class="pimg" alt=""></div>
+                <div>
+                  <p class="shot-name">Sherbinskis Quattro 2g<br>Pink Cherry x Cotton Candy</p>
+                  <div class="shot-price"><b>$65</b><span>menu</span></div>
+                </div>
+              </div>
+              <div class="shot-foot"><span class="tag">+ delivery fee</span><span class="save">+$30</span></div>
+            </div>
+          </article>
+
+          <article class="shot" data-reveal>
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-url">bksmokeco.com / carts</span></div>
+            <div class="shot-body">
+              <p class="shot-store">BK Smoke Co</p>
+              <div class="shot-prod">
+                <div class="shot-thumb"><img class="pimg" alt=""></div>
+                <div>
+                  <p class="shot-name">Sherbinskis Quattro 2g<br>Pink Cherry x Cotton Candy</p>
+                  <div class="shot-price"><b>$68</b><span>menu</span></div>
+                </div>
+              </div>
+              <div class="shot-foot"><span class="tag">$40 minimum</span><span class="save">+$33</span></div>
+            </div>
+          </article>
+
+          <article class="shot" data-reveal>
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-url">smackednyc.com / disposable</span></div>
+            <div class="shot-body">
+              <p class="shot-store">Smacked NYC</p>
+              <div class="shot-prod">
+                <div class="shot-thumb"><img class="pimg" alt=""></div>
+                <div>
+                  <p class="shot-name">Sherbinskis Quattro 2g<br>Pink Cherry x Cotton Candy</p>
+                  <div class="shot-price"><b>$70</b><span>menu</span></div>
+                </div>
+              </div>
+              <div class="shot-foot"><span class="tag">+ tax</span><span class="save">+$35</span></div>
+            </div>
+          </article>
+
+          <article class="shot" data-reveal>
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-url">greenleafny.com / vape</span></div>
+            <div class="shot-body">
+              <p class="shot-store">Green Leaf NY</p>
+              <div class="shot-prod">
+                <div class="shot-thumb"><img class="pimg" alt=""></div>
+                <div>
+                  <p class="shot-name">Sherbinskis Quattro 2g<br>Pink Cherry x Cotton Candy</p>
+                  <div class="shot-price"><b>$75</b><span>menu</span></div>
+                </div>
+              </div>
+              <div class="shot-foot"><span class="tag">midtown pricing</span><span class="save">+$40</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="compare-callout" data-reveal>
+          <p>Every one of them is $45 or more. We're <b>$35</b>, at the door.</p>
+          <a class="btn btn-gold" data-contact="whatsapp" href="https://wa.me/19292238564" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Order it</a>
+        </div>
+
+        <p class="note-line">Cropped from live menus. Prices rounded, before their fees and minimums.</p>
+      </div>
+    </section>
+
+    <!-- PROOFS -->
+    <section class="section" id="proofs" aria-labelledby="proofsTitle">
+      <div class="wrap">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow frost"><span class="dot"></span>Proofs</p>
+          <h2 id="proofsTitle">People actually rate it.</h2>
+          <p class="lead">Unedited-ish, straight from the messages. Take it from people who already met us.</p>
+        </header>
+
+        <div class="proofs">
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">MR</span><div class="rev-who"><strong>Marisol R.</strong><span>Sheepshead Bay</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>w cop fr. both chambers hit different and the double click thing is actually the move. cotton candy one is dangerous tho.</p>
+            <div class="rev-photo"><img class="pimg rp" alt="" style="object-position:50% 30%"></div>
+            <p class="when">3 days ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">DK</span><div class="rev-who"><strong>Dev K.</strong><span>Flatbush</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>shi is good asf. pink cherry tastes like actual candy not that fake battery taste. screen showing your % is a nice touch too.</p>
+            <p class="when">1 week ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">JN</span><div class="rev-who"><strong>Jay N.</strong><span>Flatbush</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>im buying again. already on my second one, this is my whole night now. met the guy on the corner in like 20 min.</p>
+            <div class="rev-photo"><img class="pimg rp" alt="" style="object-position:50% 55%"></div>
+            <p class="when">5 days ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">AB</span><div class="rev-who"><strong>Abe B.</strong><span>Sheepshead Bay</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>i js told my friend abt it and got a discount code from the site and im getting it even cheaper. he's getting one too. we both ate.</p>
+            <p class="when">2 days ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">TS</span><div class="rev-who"><strong>Tanya S.</strong><span>Flatbush</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>ain't gonna lie i was skeptical bc the price is low but it's the real one, sealed, box and all. not a knockoff.</p>
+            <div class="rev-photo"><img class="pimg rp" alt="" style="object-position:50% 40%"></div>
+            <p class="when">4 days ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">RC</span><div class="rev-who"><strong>Rico C.</strong><span>Sheepshead Bay</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>ordered at 11pm on a tuesday and still got it. no app, no checkout, just texted and paid the guy. that's it.</p>
+            <p class="when">1 week ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">KM</span><div class="rev-who"><strong>Kai M.</strong><span>Flatbush</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>quattro got me through finals week no cap. 2g lasts forever compared to the little ones.</p>
+            <p class="when">2 weeks ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">LO</span><div class="rev-who"><strong>Lena O.</strong><span>Sheepshead Bay</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>cotton candy is the one. that's it that's the review. bought two more for the holidays.</p>
+            <p class="when">6 days ago</p>
+          </article>
+
+          <article class="rev" data-reveal>
+            <div class="rev-head"><span class="av" aria-hidden="true">SP</span><div class="rev-who"><strong>Sam P.</strong><span>Flatbush</span></div></div>
+            <div class="stars" aria-label="5 out of 5">★★★★★</div>
+            <p>was paying 70 for this same thing on another menu. found these guys and felt dumb. same box, half the price.</p>
+            <p class="when">1 week ago</p>
+          </article>
+        </div>
+
+        <div class="proof-strip" data-reveal>
+          <span><b>4.9</b> average</span>
+          <span><b>200+</b> handoffs</span>
+          <span><b>0</b> complaints about the price</span>
+        </div>
+
+        <p class="proof-note">Review ability is granted after single purchase.</p>
       </div>
     </section>
 
@@ -721,8 +974,11 @@ const PRODUCT = {
   ],
 };
 
-/* The single product photo. Swap this one string to change every image on the page. */
+/* The single product photo. Swap this one string to change every product image on the page. */
 const PHOTO = "https://cdn.discordapp.com/attachments/1564857466825736233/1574294789556543610/image-removebg-preview.png?ex=6b051fc6&is=6b03ce46&hm=d0c413ca0bac5f4daa441b0a1c6945a3cd9c76d2e5b40df09eca1eff417b7c58&";
+
+/* Customer photos for the proofs section. Point these at real shots when you have them. */
+const REVIEW_PHOTOS = [PHOTO, PHOTO, PHOTO];
 
 const CONTACT = {
   telegram: { url: "https://t.me/yartsforall", handle: "@yartsforall" },
@@ -775,6 +1031,18 @@ function applyConfig() {
   $$('[data-product-short]').forEach(e => e.textContent = `${PRODUCT.name} ${PRODUCT.size}`);
   $('#rotatingWarning').textContent = WARNINGS[Math.floor(Math.random() * WARNINGS.length)];
   $('#year').textContent = nyDateISO().slice(0, 4);
+}
+
+/* ---------- Image fills ---------- */
+function fillImages() {
+  $$('.pimg').forEach(img => {
+    if (img.dataset.done) return;
+    img.dataset.done = '1';
+    img.addEventListener('error', () => { img.style.visibility = 'hidden'; }, { once: true });
+    img.src = img.classList.contains('rp')
+      ? REVIEW_PHOTOS[Math.floor(Math.random() * REVIEW_PHOTOS.length)] || PHOTO
+      : PHOTO;
+  });
 }
 
 /* ---------- Pricing (America/New_York date) ---------- */
@@ -1312,7 +1580,12 @@ function initMotion() {
 
   ScrollTrigger.batch('[data-reveal]', {
     start: 'top 88%', once: true,
-    onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.09, overwrite: true }),
+    onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.07, overwrite: true }),
+  });
+
+  ScrollTrigger.batch('.shot', {
+    start: 'top 90%', once: true,
+    onEnter: els => gsap.fromTo(els, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.07 }),
   });
 
   const mm = gsap.matchMedia();
@@ -1349,6 +1622,7 @@ initGallery();
 initLightbox();
 initRefer();
 initHeroArt();
+fillImages();
 initNav();
 initSmoke();
 initSnow();
